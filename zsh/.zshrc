@@ -315,12 +315,10 @@ alias gc!="git add -A && git commit -m"
 
 # remote repos
 alias gr="git remote"
-alias gra="git remote add origin"
-alias gp1="git push --set-upstream origin master"
+alias gra="git remote add"
 alias gpb="git push --set-upstream origin" #git push branch
 alias gp="git push"
 alias gp!="git push -f"
-alias gbp="git push --set-upstream"
 alias gl="git pull" #git down_l_oad
 
 # branches
@@ -330,9 +328,8 @@ alias go="git checkout"
 alias gnb="git checkout -b" #create new local branch and check it out
 alias gob="git checkout -b" #create new local branch and check it out
 alias gm="git merge"
-# alias gnb="git checkout" #create new local branch, check it out and set the upstream
 
 # undo, ammend, diff
 alias gz="git reset HEAD"
-alias gcx="git commit -a --amend" #use to change the last commit
+alias gcx="git commit --amend" #use to change the last commit
 alias gx="git diff" #git "e_x_amine/compare"
