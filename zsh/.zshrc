@@ -167,8 +167,8 @@ function extract {
 
 # aliases for editing and intializing dotfiles
 alias dot="cd ~/.dotfiles/"
-alias dot.="vim ~/.dotfiles/"
-alias rc="vim ~/.zshrc ~/.vimrc" #edit dotfiles
+alias dot.="vim ~/.dotfiles/" #edit dotfiles
+alias rc="vim ~/.zshrc"
 alias rc.=". ~/.zshrc" #source dotfile
 
 # Simplify navigation
