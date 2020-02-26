@@ -1,0 +1,42 @@
+#Basic git ignore for design
+
+#ignore osx display store
+*.DS_Store
+
+#ignore processing apps
+applet
+application.linux32
+application.linux64
+application.windows32
+application.windows64
+application.macosx
+
+#ignore sublime-processing build folder
+**/build-tmp
+
+#archives
+*.zip
+*.tar.gz
+
+#image formats (png, gif, svg: OK)
+*.ai
+*.psd
+*.indd
+*.tif
+*.tiff
+*.jpg
+*.NEF
+*.dng
+
+#video formats
+*.aep
+*.mov
+*.avi
+
+#audio formats
+*.mp3
+*.aif
+*.pkf
+*.mp4
+*.wav
+

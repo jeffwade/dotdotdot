@@ -1,0 +1,14 @@
+[includeIf "gitdir:github/"]
+  path = ~/.gitconfig-hub
+[includeIf "gitdir:personal/"]
+  path = ~/.gitconfig-lab
+
+[user]
+	name = Jeff Wade
+	email = jeffwade@users.noreply.github.com
+[core]
+	editor = nvim
+[credential]
+	helper = osxkeychain
+[merge]
+  tool = vimdiff
