@@ -317,7 +317,7 @@ cnoreabbrev <expr> h getcmdtype() == ":" && getcmdline() == 'h' ? 'tab help' : '
 augroup vim_helpers
   autocmd!
   autocmd FileType vim :source ~/.vim/helpers/vim-helpers.vim
-  autocmd FileType vim setlocal foldmethod=marker
+  autocmd FileType vim :setlocal foldmethod=marker
 augroup END
 
 " EDITING DOTFILES & HELPERS {{{

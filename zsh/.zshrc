@@ -294,42 +294,50 @@ alias ayer="cd ~/Documents/personal/hoy && vim hoy-`date -v-1d '+%Y%m%d-%a'`"
 # GIT COMMANDS
 #######
 
-# Use gitlab
+# Use gitlab as default.
+# Escape \hub or \git if you need it for something specific
 alias git="hub"
 alias hub="lab"
 
-# basics
+# start a repo
 alias gi="git init"
 alias gin="git init"
 alias gitin="git init"
 alias get="git clone"
+
+# checking status and history
 alias gs="git status"
+alias gl="git log"
+
+# staging changes
+alias ga="git add"
+alias ga.="git add ." # add the current directory (usually the whole project)
+alias ga!="git add -A" # add All changes
+alias gap="git add -p" # patch staging
+alias gus="git restore --staged" # git unstage
 
 # commits
-alias ga="git add"
-alias ga.="git add ."
-alias ga!="git add -A"
-alias gc="git commit -m"
-alias gca="git commit -am"
-alias gc!="git add -A && git commit -m"
+alias gc="git commit -m" # always add a message inline
+alias gca="git commit -am" # add changes and commit
+alias gc!="git add -A && git commit -m" 
+alias gcx="git commit --amend" # amend the last commit
+alias gz="git reset HEAD" # git undo last commit
 
-# remote repos
+# working with remote repos
 alias gr="git remote"
 alias gra="git remote add"
-alias gpb="git push --set-upstream origin" #git push branch
+alias gpb="git push --set-upstream origin" #set up a remote branch 'git push branch'
 alias gp="git push"
-alias gp!="git push -f"
-alias gl="git pull" #git down_l_oad
+alias gp!="git push -f" # force push
+alias gd="git pull" # git download
 
 # branches
 alias gb="git branch"
-alias gbd="git branch -d"
-alias go="git checkout" 
+alias gbd="git branch -d" #delete branch
+alias go="git checkout" # go to branch
 alias gnb="git checkout -b" #create new local branch and check it out
 alias gob="git checkout -b" #create new local branch and check it out
-alias gm="git merge"
 
-# undo, ammend, diff
-alias gz="git reset HEAD"
-alias gcx="git commit --amend" #use to change the last commit
+# merges
+alias gm="git merge"
 alias gx="git diff" #git "e_x_amine/compare"
