@@ -321,25 +321,23 @@ augroup vim_helpers
 augroup END
 
 " EDITING DOTFILES & HELPERS {{{
+" _R_ opens .dotfiles directory in a new tab
+noremap <silent> <localleader><s-r> :tabnew ~/.dotfiles<cr>
+" _D_ opens .dotfiles directory in a new tab
+nnoremap <localleader><s-d> :vsplit ~/.dotfiles<cr><c-w><s-l>
 " _Z_ opens .zshrc in a new tab 
 noremap <silent> <localleader><s-z> :tabnew ~/.zshrc<cr>
 " _V_ open vimrc in a new tab 
 nnoremap <silent> <localleader><s-v> :tabnew ~/.vimrc<CR>
 " _E_ opens .vimrc next to the current file
 nnoremap <localleader><s-e> :vsplit ~/.vimrc<CR><c-w><s-l>
-" _S_ source .vimrc
-nnoremap <Leader><s-s> :source ~/.vimrc<CR>
-" happy cat when vimrc sources correctly
-echo "(`>^.^<`)"
+" _S_ source .vimrc, clear search highlights, echo happy cat
+nnoremap <Leader><s-s> :source ~/.vimrc<CR> :noh<cr> :echo "(`>^.^<`)"<cr>
 " _H_ opens helpers picker next to the current buffer
 nnoremap <silent> <localleader><s-h> :vsplit ~/.vim/helpers<cr><c-w><s-l>
-" _W_ opens vimrc and html,javascript helpers for web projects
-nnoremap <silent> <localleader><s-w> :tabnew ~/.vim/helpers/javascript-helpers.vim<cr> :vsplit ~/.vim/helpers/html-helpers.vim<cr>gg<c-w>lG
 "
-" open key current mappings (for search, not editing)
-nnoremap <Leader>? :tabnew ~/vim_keys.txt<CR>
 " open key default key mappings
-nnoremap <Leader>?? :tab help index<CR>
+nnoremap <Leader>? :tab help index<CR>
 " }}} END dotfile editing
 
 " }}}
@@ -402,11 +400,15 @@ augroup END
 
 " END helpers }}}
 
-" 'TEMPORARY ----------------------- {{{
+" 'temporary ----------------------- {{{
 " use 'em for a while, then put them where they go, or delete them
 
 " Change current word to uppercase
 inoremap <c-u> <esc>viwUi
 nnoremap <leader><c-u> viwU
-" nnoremap G Go
+" Change current word to lowercase
+inoremap <c-l> <esc>viwui
+nnoremap <leader><c-l> viwu
+nnoremap G Go
+
 " }}}
