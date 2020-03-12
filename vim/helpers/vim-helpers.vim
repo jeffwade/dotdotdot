@@ -15,6 +15,9 @@ inoreabbrev omap onoremap
 inoreabbrev ono onoremap
 inoreabbrev au autocmd
 inoreabbrev buf <buffer>
+inoreabbrev bu <buffer>
+inoreabbrev le leader
+inoreabbrev ll localleader
 
 " COMMAND mode abbreviations
 cnoreabbrev iab inoreabbrev
