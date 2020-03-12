@@ -2,6 +2,14 @@
 
 inoreabbrev <buffer> cl console.log();<esc>hi
 
+" Operators
+" in variable assignment
+onoremap <buffer> i; :<c-u>execute "normal! /;\r:nohlsearch\rT=vt;"<cr><space>
+" in comment
+"
+" around comment
+"
+
 " VARIABLES
 " regular var
 inoreabbrev <buffer> var var varName = varValue;<esc>^/var<cr>:noh<cr>cw<bs>
@@ -17,6 +25,8 @@ inoreabbrev <buffer> arr [arrayVal1, arrayVal2 ]<esc>F[/array<cr>:noh<cr>cw
 
 " CONDITIONALS
 inoreabbrev <buffer> if if (ifCondition) {<cr>ifBody<cr>}<esc>0kk^/if<cr>:noh<cr>cw
+inoreabbrev <buffer> elif else if (ifCondition) {<cr>ifBody<cr>}<esc>0kk^/if<cr>n:noh<cr>cw
+inoreabbrev <buffer> else else {<cr>}<esc>O
 
 "LOOPS
 
