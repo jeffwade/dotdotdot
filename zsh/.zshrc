@@ -169,6 +169,7 @@ function extract {
 alias dot="cd ~/.dotfiles/"
 alias dot.="vim ~/.dotfiles/" #edit dotfiles
 alias rc="vim ~/.zshrc"
+alias vrc="vim ~/.vimrc"
 alias rc.=". ~/.zshrc" #source dotfile
 
 # Simplify navigation
@@ -263,13 +264,16 @@ alias coderef="cd /Users/jeff/Documents/code/_reference"
 alias gitref="cd /Users/jeff/Documents/code/_reference/progit/ && nvim -S Session.vim"
 ## CURRENT
 alias lvs="cd ~/Documents/code/vim/learnvimscriptthehardway/chapters && nvim -S Session.vim"
-alias js.="cd ~/Documents/code/web/training/lynda_js/_jesst && nvim -S ~/Documents/code/web/training/lynda_js/_jesst/Session.vim"
+alias js.="cd ~/Documents/code/web/training/lynda_js && nvim ."
 ## PAST
 alias html="cd ~/Documents/code/web/training/lynda_html/site"
 alias css="cd ~/Documents/code/web/training/lynda_css/css-portfolio"
 
+# Processing
+alias p3inspo="cd ~/Documents/code/processing/_inspiration"
+
 # Reading
-alias nfd="cd ~/Documents/ebooks/NarrativeFrederickDouglass/ && nvim -S Session.vim"
+alias book="cd ~/Documents/ebooks/NarrativeFrederickDouglass/ && nvim -S Session.vim"
 
 # Play ops
 alias play="cd ~/Documents/personal/playops"
@@ -277,8 +281,8 @@ alias gats="cd /Users/jeff/Documents/code/web/gatsby-tutorial"
 alias p3="cd ~/Documents/code/web/processing"
 
 # Bridger website
-alias bw="cd /Users/jeff/Box/Bridger/Marketing/Website/00_Bridger_Website_081219/00_Code/bridger-site"
-alias bw.="cd /Users/jeff/Box/Bridger/Marketing/Website/00_Bridger_Website_081219/00_Code/bridger-site && nvim -S Session.vim"
+alias bw="cd /Users/jeff/Documents/code/web/bridger.work"
+alias bw.="cd /Users/jeff/Documents/code/web/bridger.work && nvim ."
 
 # developing Sketch plugins
 alias sketchplugins="cd /Users/jeff/Library/Application\ Support/com.bohemiancoding.sketch3/Plugins/"
@@ -288,7 +292,7 @@ alias lseek="cd ~/Documents/code/sketchplugins/layer-seeker"
 alias hoy="md ~/Documents/personal/hoy/entries/`date '+%Y'`/`date '+%m'` && vim hoy-`date '+%Y%m%d-%a'`.md"
 alias ayer="cd ~/Documents/personal/hoy && vim hoy-`date -v-1d '+%Y%m%d-%a'`"
 
-
+# Processing
 
 #######
 # GIT COMMANDS
@@ -297,17 +301,22 @@ alias ayer="cd ~/Documents/personal/hoy && vim hoy-`date -v-1d '+%Y%m%d-%a'`"
 # Use gitlab as default.
 # Escape \hub or \git if you need it for something specific
 alias git="hub"
-alias hub="lab"
+# alias hub="lab"
 
 # start a repo
-alias gi="git init"
 alias gin="git init"
 alias gitin="git init"
 alias get="git clone"
 
 # checking status and history
 alias gs="git status"
-alias gl="git log"
+# git log long
+alias gll="git log"
+# limit git log
+alias gl="git log --oneline"
+alias gl3="git log --oneline -3"
+alias gl5="git log --oneline -5"
+alias gl10="git log --oneline -10"
 
 # staging changes
 alias ga="git add"
@@ -318,15 +327,25 @@ alias gus="git restore --staged" # git unstage
 
 # commits
 alias gc="git commit -m" # always add a message inline
-alias gca="git commit -am" # add changes and commit
+alias gca="git commit -am" # add changes and commit -> "git commit add"
+alias gac="git commit -am" # add changes and commit -> "git add commit"
 alias gc!="git add -A && git commit -m" 
 alias gcx="git commit --amend" # amend the last commit
-alias gz="git reset HEAD" # git undo last commit
+alias gz="git reset" # git undo last commit
+
+# stashing
+alias gt="git stash" # git 'tash
+alias gtm="git stash push -m" # git 'tash with message
+alias gtl="git stash list"
+alias gtp="git stash pop"
+alias gta="git stash apply"
+alias gtd="git stash drop"
 
 # working with remote repos
 alias gr="git remote"
 alias gra="git remote add"
 alias gpb="git push --set-upstream origin" #set up a remote branch 'git push branch'
+alias gpsu="git push --set-upstream origin" #set up a remote branch 'git push set upstream'
 alias gp="git push"
 alias gp!="git push -f" # force push
 alias gd="git pull" # git download
@@ -335,9 +354,27 @@ alias gd="git pull" # git download
 alias gb="git branch"
 alias gbd="git branch -d" #delete branch
 alias go="git checkout" # go to branch
+alias goma="git checkout master" # go to master branch
 alias gnb="git checkout -b" #create new local branch and check it out
 alias gob="git checkout -b" #create new local branch and check it out
 
 # merges
 alias gm="git merge"
 alias gx="git diff" #git "e_x_amine/compare"
+
+# GITHUB COMMANDS
+alias gh="hub browse" #git hub
+# Issues
+alias gi="hub issue"
+alias gi.="hub issue create"
+alias gis="hub issue show"
+alias giu="hub issue update"
+alias gie="hub issue update --edit"
+
+# Pull-requests
+alias gpr="hub pr"
+alias gpr.="hub pull-request -p"
+
+################################################
+# Everything below heres has been `echo`ed into the file and needs to be sorted.
+
