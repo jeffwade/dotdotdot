@@ -2,14 +2,15 @@
 
 " single-line /inline elements
 inoreabbrev <buffer> doc <!doctype html><cr>
-inoreabbrev <buffer> meta <meta propName="prpValue"><esc>^/prop<cr>cw<bs>
+inoreabbrev <buffer> meta <meta propName="propValue"><esc>^/prop<cr>cw<bs>
 inoreabbrev <buffer> metac <meta charset="utf-8">
 inoreabbrev <buffer> metav <meta name="viewport" content="width=device-width, initial-scale=1.0">
-inoreabbrev <buffer> title <title></title><esc>F<i
-inoreabbrev <buffer> link <link href="linkURL" rel="linkRel"><esc>^/link<cr>ncw
-inoreabbrev <buffer> font <link href="fontURL" rel="stylesheet"><esc>^/font<cr>cw
-inoreabbrev <buffer> css <link href="css/styles.css" rel="stylesheet">
-inoreabbrev <buffer> script <script></script><esc>F>i<space>src=""<esc>i
+inoreabbrev <buffer> htitle <title></title><esc>F<i
+inoreabbrev <buffer> hlink <link href="linkURL" rel="linkRel"><esc>^/link<cr>ncw
+inoreabbrev <buffer> hfont <link href="fontURL" rel="stylesheet"><esc>^/font<cr>cw
+inoreabbrev <buffer> hcss <link href="css/styles.css" rel="stylesheet">
+inoreabbrev <buffer> hscript <script></script><esc>F>i<space>src=""<esc>i
+inoreabbrev <buffer> / <!--commentBody --><esc>?comment<cr>cw
 
 inoreabbrev <buffer> h1 <h1></h1><esc>F<i
 inoreabbrev <buffer> h2 <h2></h2><esc>F<i
@@ -21,18 +22,21 @@ inoreabbrev <buffer> p <p></p><esc>F<i
 inoreabbrev <buffer> img <img src="imgSource" alt="imgAltText" width="imgWidth" height="imgHeight"><esc>F</img<cr>ncw
 
 
+" Comments
+inoreabbrev <buffer> comm <!-- comment --><esc>2F<space>ct<space>
+
 " code block elements
-inoreabbrev <buffer> html <html lang="en"><cr></html><esc>O<bs><space>
-inoreabbrev <buffer> head <head><cr></head><esc>O<bs><space>
-inoreabbrev <buffer> body <body><cr></body><esc>O<bs><space>
+inoreabbrev <buffer> hhtml <html lang="en"><cr></html><esc>O<bs><space>
+inoreabbrev <buffer> hhead <head><cr></head><esc>O<bs><space>
+inoreabbrev <buffer> hbody <body><cr></body><esc>O<bs><space>
 
-inoreabbrev <buffer> header <header><cr></header><esc>O<bs><space>
-inoreabbrev <buffer> main <main><cr></main><esc>O<bs><space>
-inoreabbrev <buffer> nav <nav role="navigation"><cr></nav><esc>O<bs><space>
-inoreabbrev <buffer> footer <footer><cr></footer><esc>O<bs><space>
+inoreabbrev <buffer> hheader <header><cr></header><esc>O<bs><space>
+inoreabbrev <buffer> hmain <main role="main"><cr></main><esc>O<bs><space>
+inoreabbrev <buffer> hnav <nav role="navigation"><cr></nav><esc>O<bs><space>
+inoreabbrev <buffer> hfooter <footer><cr></footer><esc>O<bs><space>
 
-inoreabbrev <buffer> article <article><cr></article><esc>O<bs><space>
-inoreabbrev <buffer> section <section><cr></section><esc>O<bs><space>
+inoreabbrev <buffer> harticle <article><cr></article><esc>O<bs><space>
+inoreabbrev <buffer> hsection <section><cr></section><esc>O<bs><space>
 
 inoreabbrev <buffer> ul <ul><cr><li>listItem</li><cr></ul><esc>k/listItem<cr>cw
 inoreabbrev <buffer> ol <ol><cr><li>listItem</li><cr></ol><esc>k/listItem<cr>cw
@@ -45,12 +49,23 @@ inoreabbrev <buffer> dd <dd>descriptionDetails</dd><esc>2F</description<cr>cw
 inoreabbrev <buffer> div <div><cr></div><esc>O<bs><space>
 
 " project starter
-iabbrev <buffer> init <!doctype html><cr><html lang="en"><cr></html><esc>O<head><cr><meta charset="utf-8"><cr><meta name="viewport" content="width=device-width, initial-scale=1.0"><cr><title>initTitle</title><esc>o<link href="initFontURL" rel="stylesheet"><cr><link href="css/styles.css" rel="stylesheet" type="text/css"><cr></head><cr><body><cr><header role="banner"><cr>initHeader<cr></header><cr><main role="main"><cr>initBody<cr></main><cr><footer role="contentinfo"><cr></footer><cr></body><esc>gg/init<cr>ncw
+iabbrev <buffer> hinit <!doctype html><cr><html lang="en"><cr></html><esc>O<head><cr><meta charset="utf-8"><cr><meta name="viewport" content="width=device-width, initial-scale=1.0"><cr><title>initTitle</title><esc>o<link href="initFontURL" rel="stylesheet"><cr><link href="css/styles.css" rel="stylesheet" type="text/css"><cr></head><cr><body><cr><header role="banner"><cr>initHeader<cr></header><cr><main role="main"><cr>initBody<cr></main><cr><footer role="contentinfo"><cr></footer><cr></body><esc>gg/init<cr>ncw
 
+" HTML Entities
+inoreabbrev <buffer> && &amp;
+inoreabbrev <buffer> &> &gt;
+inoreabbrev <buffer> &< &lt;
+inoreabbrev <buffer> &c &copy;
+inoreabbrev <buffer> &n &ndash;
+inoreabbrev <buffer> &m &mdash;
+inoreabbrev <buffer> &r &reg;
+inoreabbrev <buffer> &t &trade;
+inoreabbrev <buffer> &/ &frasl;
+inoreabbrev <buffer> &l &nbsp;
 
 augroup html_indentation
   " auto indent html on load and write
-  autocmd BufWritePre,BufRead *.html :normal gg=G:noh<cr>
+  " autocmd BufWritePre,BufRead *.html :normal gg=G:noh<cr>
 
   " create a fold based on indentation
   autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
