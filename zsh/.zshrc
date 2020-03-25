@@ -232,11 +232,38 @@ alias py3.="runpy3"
 # Use the right Python installer
 alias pip="pip3"
 
-# Start Spotify and Spotifree together
-alias music="open /Applications/Spotify.app/Contents/MacOS/Spotify; open /Applications/Spotifree.app/Contents/MacOS/Spotifree"
+# Opening GUI apps
+# Start Spotify and related apps together
+alias music="open -a mutespotifyads && open -a spotify-now-playing"
 
-# open unity
-alias unity="/Applications/Unity/Unity.app/Contents/MacOS/Unity"
+# open current directory
+alias finder="open ."
+
+# open browsers
+alias chrome="open -a google\ chrome"
+alias firefox="open -a firefox"
+alias browse="open -a firefox"
+
+# work/team tools
+alias slack="open -a slack"
+alias notion="open -a notion"
+alias notes="open -a notion"
+alias harvest="open -a harvest"
+alias messages="open -a messages"
+
+# start design tools
+alias figma="open -a figma"
+alias sketch="open -a sketch"
+alias framer="open -a framer\ x"
+
+# 3d tools
+alias unity="open -a unity\ hub"
+alias blender="open -a blender"
+
+# start video tools
+alias quicktime="open -a quicktime"
+alias handbrake="open -a handbrake"
+alias loom="open -a loom"
 
 # Echo my IP address
 alias myip="curl http://ipecho.net/plain; echo"
@@ -265,24 +292,21 @@ alias snake="python ~/Documents/games/snake.py"
 # Learning
 ## REFERENCE
 alias coderef="cd /Users/jeff/Documents/code/_reference"
+alias data="cd ~/Documents/code/_reference/my-data"
 alias gitref="cd /Users/jeff/Documents/code/_reference/progit/ && nvim -S Session.vim"
 ## CURRENT
 alias lvs="cd ~/Documents/code/vim/learnvimscriptthehardway/chapters && nvim -S Session.vim"
 alias js.="cd ~/Documents/code/web/training/lynda_js && nvim ."
+alias gats="cd /Users/jeff/Documents/code/web/gatsby-tutorial"
 ## PAST
 alias html="cd ~/Documents/code/web/training/lynda_html/site"
 alias css="cd ~/Documents/code/web/training/lynda_css/css-portfolio"
-
-# Processing
-alias p3inspo="cd ~/Documents/code/processing/_inspiration"
 
 # Reading
 alias book="cd ~/Documents/ebooks/NarrativeFrederickDouglass/ && nvim -S Session.vim"
 
 # Play ops
 alias play="cd ~/Documents/personal/playops"
-alias gats="cd /Users/jeff/Documents/code/web/gatsby-tutorial"
-alias p3="cd ~/Documents/code/web/processing"
 
 # Bridger website
 alias bw="cd /Users/jeff/Documents/code/web/bridger.work"
@@ -297,6 +321,8 @@ alias hoy="md ~/Documents/personal/hoy/entries/`date '+%Y'`/`date '+%m'` && vim 
 alias ayer="cd ~/Documents/personal/hoy && vim hoy-`date -v-1d '+%Y%m%d-%a'`"
 
 # Processing
+alias p3="cd ~/Documents/code/web/processing"
+alias p3inspo="cd ~/Documents/code/processing/_inspiration"
 
 #######
 # GIT COMMANDS
