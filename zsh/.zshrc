@@ -192,7 +192,7 @@ alias hidedesk="defaults write com.apple.finder CreateDesktop -bool false && kil
 alias showdesk="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
 # Copy the current path to the system clipboard
-alias cwd="pwd && echo -n "$(pwd)" | pbcopy"
+alias cwd="echo -n "$(pwd)" | pbcopy"
 
 # Add some easy shortcuts for formatted directory listings and add a touch of color.
 alias ls="ls -F"
@@ -207,9 +207,12 @@ alias f.="find . -name"
 alias grep="grep --color=auto --exclude-dir=\.git"
 
 # Make some possibly destructive commands more interactive.
-alias rm="rm -iv"
-alias mv="mv -iv"
-alias cp="cp -iv"
+alias rm="rm -v"
+alias rmi="rm -iv"
+alias mv="mv -v"
+alias mvi="mv -iv"
+alias cp="cp -v"
+alias cpi="cp -iv"
 alias rm!="rm -rfv" #just get rid of it
 
 # Better folder creation
@@ -236,7 +239,7 @@ alias music="open /Applications/Spotify.app/Contents/MacOS/Spotify; open /Applic
 alias unity="/Applications/Unity/Unity.app/Contents/MacOS/Unity"
 
 # Echo my IP address
-# alias ip?="curl http://ipecho.net/plain; echo"
+alias myip="curl http://ipecho.net/plain; echo"
 
 # Close the terminal
 alias ,q="logout || exit"
@@ -247,6 +250,7 @@ alias topm='top -o mem'
 
 # Recursively delete `.DS_Store` files
 alias cleands="find . -type f -name '*.DS_Store' -ls -delete"
+alias cleanbox="rm! /Users/jeff/Library/Application\ Support/Box/Box/cache/*"
 
 # Boldly go where no man has gone before
 alias engage="echo -n -e '\033]0;USS Enterprise\007' && play -n -c1 synth whitenoise lowpass -1 120 lowpass -1 120 lowpass -1 120 gain +14"
