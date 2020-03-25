@@ -213,52 +213,53 @@ nnoremap <silent><leader>> :setlocal wrap! \| if &wrap ==? 0 \| echo "🎁 like 
 "               42<esc>
 " [result]:     var theAnswer = 42;
 " ----------------------------------}}}
-nnoremap JL ncw<esc>a
-inoremap JL <esc>ncw<esc>a
+nnoremap JL ncw
+inoremap JL <esc>ncw
 " (effectively) clear the search
 " so you don't accidentally jump to replace
 " something after you're done with a snippet
-" inoremap <localleader>\ /asdjfghkl<cr>:noh<cr>
+" search for the second-to-last term
+nnoremap <silent> <localleader>\ q/kk<cr>:noh \| echo "⚖️  Balance restored!"<cr>
 
 " Working on project files
 " Opening files outside of vim
 " open current buffer in the system default
 nnoremap <silent> <localleader>o :echo "🧬 Splicing mitochondrial DNA"<cr> :silent w<cr> :silent ! open %<CR>
 " change the working directory to the open file's path
-nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
+nnoremap <leader>cd :cd %:p:h \| pwd<cr>
 " Save current session in working directory
-nnoremap <leader>ms :mksession!<cr>:echo "✅ Sesh cached"<cr>
+nnoremap <leader>ms :mksession! \| echo "✅ Sesh cached"<cr>
 
 " LISTING THINGS
 "list buffers
-nnoremap <silent><leader>lb :echo "💥 All your buffers are belong to us!"<cr>:ls<cr>
+nnoremap <silent><leader>lb :echo "💥 All your buffers are belong to us!" \| ls<cr>
 " list marks
-nnoremap <silent><leader>lm :echo "🗺  I wish the world were flat, like the old days"<cr>:marks<cr>
+nnoremap <silent><leader>lm :echo "🗺  I wish the world were flat, like the old days" \| marks<cr>
 " list registers
-nnoremap <silent><leader>lr :echo "💰 I can ring you up over here."<cr>:reg<cr>
+nnoremap <silent><leader>lr :echo "💰 I can ring you up over here." \| reg<cr>
 " list search history
-nnoremap <silent> <leader>lh :echo "📜 Searching the archives."<cr>:history<cr>
+nnoremap <silent> <leader>lh :echo "📜 Searching the archives." \| history<cr>
 
 " BUFFERS
 "tab through buffers
 nnoremap <leader><tab> :b<space>
 " load next buffer
-nnoremap <silent> <c-n> :bn<cr>:echo "➡️  Next!"<cr>
-nnoremap <silent> <leader>n :bn<cr>:echo "➡️  Next!"<cr>
+nnoremap <silent> <c-n> :bn \| echo "➡️  Next!"<cr>
+nnoremap <silent> <leader>n :bn \| echo "➡️  Next!"<cr>
 " load previous buffer
-nnoremap <silent> <c-p> :bp<cr>:echo "⬅️  Back up!"<cr>
+nnoremap <silent> <c-p> :bp \| echo "⬅️  Back up!"<cr>
 " hide the current buffer
-noremap <silent> <leader>q :q<cr>:echo "👻 Quitted."<cr>
+noremap <silent> <leader>q :q \| echo "👻 Quitted."<cr>
 " delete current buffer
-noremap <leader>x :bd<cr>:echo "🚮 baleted!"<cr>
+noremap <leader>x :bd \| echo "🚮 baleted!"<cr>
 " discard current buffer
-noremap <leader><s-x> :bd!<cr>:echo "🚮 baleted!"<cr>
+noremap <leader><s-x> :bd! \| echo "🚮 baleted!"<cr>
 " rename the current buffer
 nnoremap <leader><s-r> :f 
 " set the filetype of the current buffer
 nnoremap <leader><s-f> :set filetype=
 " write all buffers
-nnoremap <leader><s-w> :wa<cr>:echo "🧻 It is written!"<cr>
+nnoremap <leader><s-w> :wa \| echo "🧻 It is written!"<cr>
 
 
 " WINDOWS
