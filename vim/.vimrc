@@ -219,7 +219,7 @@ inoremap JL <esc>ncw
 " so you don't accidentally jump to replace
 " something after you're done with a snippet
 " search for the second-to-last term
-nnoremap <silent> <localleader>\ q/kk<cr>:noh \| echo "⚖️  Balance restored!"<cr>
+nnoremap <silent> <localleader>\ q/kk<cr>:noh<cr>
 
 " Working on project files
 " Opening files outside of vim
@@ -264,15 +264,20 @@ nnoremap <leader><s-w> :wa \| echo "🧻 It is written!"<cr>
 
 " WINDOWS
 " Create new windows in each direction
-nnoremap <silent> <leader><s-j> :split<cr><c-w>j:enew<cr>
-nnoremap <silent> <leader><s-k> :split<cr>:enew<cr>
-nnoremap <silent> <leader><s-l> :vsplit<cr><c-w>l:enew<cr>
-nnoremap <silent> <leader><s-h> :vsplit<cr>:enew<cr>
+nnoremap <silent> <c-w><s-j> :split<cr><c-w>j:enew<cr>
+nnoremap <silent> <c-w><s-k> :split \| enew<cr>
+nnoremap <silent> <c-w><s-l> :vsplit<cr><c-w>l:enew<cr>
+nnoremap <silent> <c-w><s-h> :vsplit \| enew<cr>
 " move between windows
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+" move windows
+nnoremap <silent> <leader><s-j> <c-w><s-j>
+nnoremap <silent> <leader><s-k> <c-w><s-k>
+nnoremap <silent> <leader><s-l> <c-w><s-l>
+nnoremap <silent> <leader><s-h> <c-w><s-h>
 " hide other windows (only window)
 nnoremap <leader>o <c-w>o
 " vertical resize windows
@@ -295,9 +300,11 @@ cnoreabbrev t tab new
 
 " MOVEMENTS
 " move to end of line
-noremap <s-l> $
+nnoremap <s-l> g$
+nnoremap <leader>g$ $
 " move to beginning of line
-noremap <s-h> ^
+nnoremap <s-h> g^
+nnoremap <leader>g^ ^
 " in parentheses
 onoremap p i(
 " in angle brackets
@@ -308,9 +315,11 @@ onoremap q i"
 
 
 " LINE OPERATIONS
-"move to the next visual line even on wrapped lines
-nnoremap <down> gj
-nnoremap <up> gk
+"swap move to the next visual line and move to next line
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
 " move the current line _up or -down {count} lines
 nnoremap <silent> _  :<c-u>execute 'move -1-'. v:count1 \| echo "⬆️  Move on up."<cr>
 nnoremap <silent> -  :<c-u>execute 'move +'. v:count1 \| echo "⬇️  Move down, move down."<cr>
@@ -322,6 +331,12 @@ nnoremap <leader>G Go
 " Yank to the end of the line
 nnoremap <s-y> y$
 
+" Moving in insert mode
+inoremap <c-h> <left>
+inoremap <c-l> <right>
+" add line above and enter insert mode
+inoremap <C-k> <c-o>O
+inoremap <c-j> <c-o>o
 
 " WRAPPING WORDS
 " Wrap current word in double quotes
