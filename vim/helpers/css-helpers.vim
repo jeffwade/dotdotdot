@@ -1,5 +1,12 @@
 " SNIPPETS
 
+" auto insert in close brackets
+inoremap { {<cr>}<c-o>O
+inoremap ( ()<esc>i
+inoremap [ []<esc>i
+inoremap " ""<esc>i
+inoremap < <><esc>i
+
 " hit ii. for a class selector, ii# for an id selector
 inoreabbrev <buffer> i >selectorName {<cr>selectorProp: selectorPropVal;<cr>}<esc>3k/selector<cr>cw<bs>
 inoreabbrev <buffer> s >selectorName {<cr>selectorProp: selectorPropVal;<cr>}<esc>3k/selector<cr>cw<bs>

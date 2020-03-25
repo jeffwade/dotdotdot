@@ -1,6 +1,6 @@
 " JAVASCRIPT_SNIPPETS
 
-inoreabbrev <buffer> cl console.log();<esc>hi
+inoreabbrev <buffer> cl console.log( );<esc>2hi
 
 " Operators
 " in variable assignment
@@ -12,12 +12,12 @@ onoremap <buffer> i; :<c-u>execute "normal! /;\r:nohlsearch\rT=vt;"<cr><space>
 
 " VARIABLES
 " regular var
-inoreabbrev <buffer> var var varName = varValue;<esc>^/var<cr>:noh<cr>cw<bs>
-inoreabbrev <buffer> va var varName = varValue;<esc>^/var<cr>:noh<cr>cw<bs>
+inoreabbrev <buffer> var var varName = varValue;<esc>4b/var<cr>:noh<cr>cw<bs>
+inoreabbrev <buffer> va var varName = varValue;<esc>4b/var<cr>:noh<cr>cw<bs>
 " constant
-inoreabbrev <buffer> const const constName = constValue;<esc>^/const<cr>:noh<cr>cw<bs>
+inoreabbrev <buffer> const const constName = constValue;<esc>4b/const<cr>:noh<cr>cw<bs>
 " let (block scope variable)
-inoreabbrev <buffer> let let letName = letValue;<esc>^/let<cr>:noh<cr>cw<bs>
+inoreabbrev <buffer> let let letName = letValue;<esc>4b/let<cr>:noh<cr>cw<bs>
 " array
 inoreabbrev <buffer> array [arrayVal1, arrayVal2 ]<esc>F[/array<cr>:noh<cr>cw
 inoreabbrev <buffer> ar [arrayVal1, arrayVal2 ]<esc>F[/array<cr>:noh<cr>cw
@@ -28,22 +28,33 @@ inoreabbrev <buffer> if if (ifCondition) {<cr>ifBody<cr>}<esc>0kk^/if<cr>:noh<cr
 inoreabbrev <buffer> elif else if (ifCondition) {<cr>ifBody<cr>}<esc>0kk^/if<cr>n:noh<cr>cw
 inoreabbrev <buffer> else else {<cr>}<esc>O
 
+" inoreabbrev <buffer> ifel if (ifCondition) {<cr>ifBody<cr>}<esc>0kk^/if<cr>:noh<cr>cw
+
+"Ternary
+inoreabbrev <buffer> t? ternaryCondition ? ternaryIf : ternaryElse<esc>7b/ternary<cr>cw
+inoreabbrev <buffer> i? ternaryCondition ? ternaryIf : ternaryElse<esc>7b/ternary<cr>cw
+inoreabbrev <buffer> if? ternaryCondition ? ternaryIf : ternaryElse<esc>7b/ternary<cr>cw
+
+" BLOCKS
+inoremap <buffer> ( ()<esc>i
+inoremap <buffer> { {}<esc>i
+inoremap <buffer> [ []<esc>i
+
+" Quotes
+inoremap <buffer> ' ''<esc>i
+inoremap <buffer> " ""<esc>i
+" Assignment
+" inoremap <buffer> = = ;<esc>i
+" Comparisons
+
+
+
+
 "LOOPS
+inoreabbrev <buffer> for for (forConditions ) {<cr>forBody<cr>}<esc>5b/for<cr>cw
+inoreabbrev <buffer> fori for ( let i = 0; forCondition; i++ ) {<cr>forBody<cr>}<esc>8b/for<cr>cw
 
 " OBJECTS
-inoreabbrev <buffer> th this
-
-" object constructor
-inoreabbrev <buffer> ob function objName(objArgs) {<cr>objBody<cr>}<esc>0kk^/obj<cr>:noh<cr>cw<bs>
-
-" object method
-inoreabbrev <buffer> om this.methodName = function(methodArgs) {<cr>methodBody<cr>},<esc>0kk/method<cr>:noh<cw>cw<bs><space>
-inoreabbrev <buffer> me this.methodName = function(methodArgs) {<cr>methodBody<cr>},<esc>0kk/method<cr>:noh<cr>cw<bs><space>
-
-" object value
-inoreabbrev <buffer> ov this.objVal = objArg;<esc>0/obj<cr>:noh<cr>cw
-inoreabbrev <buffer> vl this.objVal = objArg;<esc>^/obj<cr>:noh<cr>Ncw<bs><space>
-
 " new object
 inoreabbrev <buffer> new new objName(objArgs)<esc>2B/obj<cr>:noh<cr>cw<bs>
 
@@ -71,3 +82,5 @@ inoreabbrev <buffer> ifn (function(functionArgs) {<cr>functionBody<cr>})(functio
 inoreabbrev <buffer> ifun (function(functionArgs) {<cr>functionBody<cr>})(functionArgs);<esc>0kk^/function<cr>n:noh<cr>cw
 
 inoreabbrev <buffer> re return result;<esc>0/result<cr>:noh<cr>cw<bs>
+
+

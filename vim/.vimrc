@@ -29,6 +29,7 @@ set title
 
 " detect filetype for sytax highlighting, etc
 filetype on
+syntax on
 
 " CURSORLINE OPTIONS
 hi cursorline term=bold cterm=bold ctermbg=234
@@ -38,7 +39,9 @@ set scrolloff=20
 
 " FOLDING OPTIONS
 set foldmethod=manual
+set foldlevelstart=3
 hi Folded ctermbg=236 cterm=italic
+set foldopen=hor,mark,percent,quickfix,search,tag,undo
 
 " STATUS LINE
 set statusline=[%n]\        " bufferNumber:
@@ -139,6 +142,10 @@ let g:ale_fixers = {
     \'javascript': ['eslint']
     \ }
 nnoremap <leader>af <Plug>(ale_fix)
+
+" Install language support and syntax highlighting
+Plug 'sheerun/vim-polyglot'
+let g:vim_jsx_pretty_colorful_config = 1
 
 "install matchup (matching tags)
 Plug 'andymass/vim-matchup'

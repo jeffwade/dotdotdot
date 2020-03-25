@@ -1,5 +1,12 @@
 " html_snippets
 
+" auto insert in close brackets
+inoremap { {<cr>}<c-o>O
+inoremap ( ()<esc>i
+inoremap [ []<esc>i
+inoremap " ""<esc>i
+inoremap < <><esc>i
+
 " single-line /inline elements
 inoreabbrev <buffer> doc <!doctype html><cr>
 inoreabbrev <buffer> meta <meta propName="propValue"><esc>^/prop<cr>cw<bs>
