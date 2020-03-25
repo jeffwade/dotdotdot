@@ -15,7 +15,7 @@ nnoremap <leader>; q:
 nnoremap <leader>: :!<space>
 
 " write the current buffer
-noremap <silent> <leader>w :w<cr>:echo "♪♩♫♩ I'm trying to be like Jesus! 😇"<cr>
+noremap <silent> <leader>w :silent w \| echo "♪♩♫♩ I'm trying to be like Jesus! 😇"<cr>
 
 " close all buffers and discard changes
 noremap <leader><s-q> :qa!<cr>
@@ -110,7 +110,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " install NERDTree (file browser in vim)
 Plug 'scrooloose/nerdtree'
 " NERDTree shortcut
-noremap <silent> <leader>/ :NERDTree<cr>:echo "🤓 🌳"<cr>
+noremap <silent> <leader>/ :NERDTree \| echo "🤓 🌳"<cr>
 " Shortcut for quicklook from NERDTree
 augroup  nerdtree_helpers
   autocmd!
@@ -153,7 +153,7 @@ augroup END
 " install quick commenting
 Plug 'tpope/vim-commentary'
 " Commentary shortcut (toggle Comment on current line)
-noremap <silent> <leader><space> :Commentary<cr>:echo "💬 ↔️  💭"<cr>
+noremap <silent> <leader><space> :Commentary \| echo "💬 ↔️  💭"<cr>
 
 
 " looking into forking this plugin and adding support for macOS
@@ -183,7 +183,13 @@ nnoremap <silent> <esc> :noh<CR>
 nnoremap <silent> <bs> <esc>:noh<CR>
 
 " Toggle line numbers
-nnoremap <silent>\| :set rnu! nu!<cr>:echo "🔢 toggloggle"<cr>
+nnoremap <silent>\| :setlocal rnu! nu! \| echo "🔢 toggloggle"<cr>
+
+" Toggle synced scrolling
+nnoremap <silent><leader>sl :setlocal scrollbind! \| if &scrollbind \| echo "⛓  Locked and loaded." \| else \| echo "🔓 Free at last!" \| endif<cr>
+
+" Toggle word wrap
+nnoremap <silent><leader>> :setlocal wrap! \| if &wrap ==? 0 \| echo "🎁 like christmas morning" \| else \| echo "🎀 all wrapped up" \| endif<cr>
 
 " Snippets
 " Jump to next snippet placeholder
@@ -298,13 +304,13 @@ onoremap q i"
 nnoremap <down> gj
 nnoremap <up> gk
 " move the current line _up or -down {count} lines
-nnoremap <silent> _  :<c-u>execute 'move -1-'. v:count1<cr>:echo "⬆️  Move on up."<cr>
-nnoremap <silent> -  :<c-u>execute 'move +'. v:count1<cr>:echo "⬇️  Move down, move down."<cr>
+nnoremap <silent> _  :<c-u>execute 'move -1-'. v:count1 \| echo "⬆️  Move on up."<cr>
+nnoremap <silent> -  :<c-u>execute 'move +'. v:count1 \| echo "⬇️  Move down, move down."<cr>
 " add blank line above '[' or below ']' cursor
 nnoremap <silent> [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[:echo "🛰  I just need some space."<cr>
-nnoremap <silent> ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>:echo "🛰  I just need some space."<cr>
-" add line above and enter insert mode
-inoremap <C-k> <esc>O
+nnoremap <silent> ]<space>  :<c-u>put =repeat(nr2char(10), v:count1) \| echo "🛰  I just need some space."<cr>
+" open a new line at bottom of the file
+nnoremap <leader>G Go
 " Yank to the end of the line
 nnoremap <s-y> y$
 
@@ -350,14 +356,14 @@ augroup END
 
 " EDITING DOTFILES & HELPERS {{{
 " _R_ opens .dotfiles directory in a new tab
-noremap <silent> <localleader><s-r> :tabnew ~/.dotfiles<cr>:echo "📝 It's dot com!"<cr>
+noremap <silent> <localleader><s-r> :tabnew ~/.dotfiles \| echo "📝 It's dot com!"<cr>
 " _D_ opens .dotfiles directory in a new tab
 nnoremap <silent><localleader><s-d> :vsplit ~/.dotfiles<cr><c-w><s-l>:echo "📝 It's dot com!"<cr>
 " _Z_ opens .zshrc in a new tab 
-noremap <silent> <localleader><s-z> :tabnew ~/.zshrc<cr>:echo "🐚 Let's do this zsh!"<cr>
+noremap <silent> <localleader><s-z> :tabnew ~/.zshrc \| echo "🐚 Let's do this zsh!"<cr>
 " V is set as global mark for vimrc
 " _V_ open vimrc in a new tab 
-nnoremap <silent> <localleader><s-v> :tabnew ~/.vimrc<cr>:echo "🎹 Fine tuning"<cr>
+nnoremap <silent> <localleader><s-v> :tabnew ~/.vimrc \| echo "🎹 Fine tuning"<cr>
 " _E_ opens .vimrc next to the current file
 nnoremap <silent> <localleader><s-e> :vsplit ~/.vimrc<cr><c-w><s-l>:echo "🎹 Fine tuning"<cr>
 " _S_ source .vimrc, clear search highlights
@@ -366,7 +372,7 @@ nnoremap <silent> <localleader>s :source ~/.vimrc<cr> :noh<cr> :echo "👩 Now w
 nnoremap <silent> <localleader><s-h> :vsplit ~/.vim/helpers<cr><c-w><s-l>:echo "🚨 Haalp...ers!"<cr>
 "
 " open key default key mappings
-nnoremap <silent> <Leader>? :tab help index<CR>:echo "🔑 Where'd I put my keys?"<cr>
+nnoremap <silent> <Leader>? :tab help index \| echo "🔑 Where'd I put my keys?"<cr>
 " }}} END dotfile editing
 
 " }}}
@@ -386,7 +392,7 @@ augroup  css_helpers
   " load abbreviations for snippets, &c
   autocmd FileType css :source ~/.vim/helpers/css-helpers.vim
   " load the project index
-  autocmd FileType css nnoremap <silent> <buffer> <localleader>o :silent w<cr> :silent ! open index.html<CR>:echo "👀 Let's see this."<cr>
+  autocmd FileType css nnoremap <silent> <buffer> <localleader>o :silent w<cr> :silent ! open index.html \| echo "👀 Let's see this."<cr>
   autocmd FileType css setlocal foldmethod=marker
 augroup END
 " END CSS helpers }}}
@@ -397,7 +403,7 @@ augroup javascript_helpers
   " load abbreviations for snippets, &c
   autocmd FileType javascript :source ~/.vim/helpers/javascript-helpers.vim
   " load the project index
-  autocmd FileType javascript nnoremap <silent> <buffer> <localleader>o :silent w<cr> :silent ! open index.html<CR>:echo "👀 Let's see this."<cr>
+  autocmd FileType javascript nnoremap <silent> <buffer> <localleader>o :silent w<cr> :silent ! open index.html \| echo "👀 Let's see this."<cr>
   autocmd FileType javascript setlocal foldmethod=indent
 augroup END
 " }}} END JavaScript helpers
@@ -431,9 +437,5 @@ augroup END
 " Change current word to uppercase
 inoremap <c-u> <esc>viwUi
 nnoremap <leader><c-u> viwU
-" Change current word to lowercase
-inoremap <c-l> <esc>viwui
-nnoremap <leader><c-l> viwu
-" nnoremap G Go
 
 " }}}
