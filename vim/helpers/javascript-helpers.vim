@@ -10,6 +10,10 @@ onoremap <buffer> i; :<c-u>execute "normal! /;\r:nohlsearch\rT=vt;"<cr><space>
 " around comment
 "
 
+" create surrounds (with tpope/vim-surround so remapping is necessary)
+imap cs <c-s>
+imap CS <c-g>S
+
 " VARIABLES
 " regular var
 inoreabbrev <buffer> var var varName = varValue;<esc>4b/var<cr>:noh<cr>cw<bs>
@@ -24,8 +28,8 @@ inoreabbrev <buffer> ar [arrayVal1, arrayVal2 ]<esc>F[/array<cr>:noh<cr>cw
 inoreabbrev <buffer> arr [arrayVal1, arrayVal2 ]<esc>F[/array<cr>:noh<cr>cw
 
 " CONDITIONALS
-inoreabbrev <buffer> if if (ifCondition) {<cr>ifBody<cr>}<esc>0kk^/if<cr>:noh<cr>cw
-inoreabbrev <buffer> elif else if (ifCondition) {<cr>ifBody<cr>}<esc>0kk^/if<cr>n:noh<cr>cw
+inoreabbrev <buffer> if if (ifCondition ) {<cr>ifBody<cr>}<esc>0kk^/if<cr>:noh<cr>cw
+inoreabbrev <buffer> elif else if (ifCondition ) {<cr>ifBody<cr>}<esc>0kk^/if<cr>n:noh<cr>cw
 inoreabbrev <buffer> else else {<cr>}<esc>O
 
 " inoreabbrev <buffer> ifel if (ifCondition) {<cr>ifBody<cr>}<esc>0kk^/if<cr>:noh<cr>cw
@@ -33,7 +37,7 @@ inoreabbrev <buffer> else else {<cr>}<esc>O
 "Ternary
 inoreabbrev <buffer> t? ternaryCondition ? ternaryIf : ternaryElse<esc>7b/ternary<cr>cw
 inoreabbrev <buffer> i? ternaryCondition ? ternaryIf : ternaryElse<esc>7b/ternary<cr>cw
-inoreabbrev <buffer> if? ternaryCondition ? ternaryIf : ternaryElse<esc>7b/ternary<cr>cw
+inoreabbrev <buffer> iff ternaryCondition ? ternaryIf : ternaryElse;<esc>7b/ternary<cr>cw
 
 " BLOCKS
 inoremap <buffer> ( ()<esc>i
