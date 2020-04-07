@@ -233,8 +233,11 @@ alias py3.="runpy3"
 alias pip="pip3"
 
 # Opening GUI apps
-# Start Spotify and related apps together
-alias music="open -a mutespotifyads && open -a spotify-now-playing"
+# entertainment
+alias steam="open -a steam"
+# Start Spotify without ads
+alias music="open -a mutespotifyads"
+
 
 # open current directory
 alias finder="open ."
