@@ -5,8 +5,16 @@ let mapleader =","
 let maplocalleader ="="
 
 " enter command mode
-nnoremap ; :
-vnoremap ; :
+" nnoremap ; :
+" vnoremap ; :
+" open command history by default
+nnoremap ; q:i
+vnoremap ; q:i
+"open search history by default
+nnoremap / q/i
+vnoremap / q/i
+nnoremap ? q?i
+vnoremap ? q?i
 
 " open command list
 nnoremap <leader>; q:
@@ -180,14 +188,17 @@ call plug#end()
 " 'mappings ---------------------------{{{
 
 " ESCAPE (Just kidding)
+nnoremap <silent> <esc> <c-c><c-c>
+inoremap <silent> <esc> <c-c><c-c>
+
 inoremap <silent> jk <esc>:noh<cr>
 cnoremap <silent>jk <c-c>
 vnoremap <silent>JK <c-c>
 " discard input
 inoremap <silent> JK <esc>u:echo "🤡 jk"<cr>
 " hide highlighting
-nnoremap <silent> <esc> :noh<CR>
-nnoremap <silent> <bs> <esc>:noh<CR>
+nnoremap <silent> <esc> :noh<cr>
+nnoremap <silent> <bs> :if &hlsearch \| echo "quiet, you!" \| else \| echo "👁  I can see!" \| endif \| set hlsearch!<cr>
 
 " Toggle line numbers
 nnoremap <silent>\| :setlocal rnu! nu! \| echo "🔢 toggloggle"<cr>
