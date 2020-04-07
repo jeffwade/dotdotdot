@@ -1,5 +1,14 @@
 " markdown helpers
 
+setlocal textwidth=80
+
+" auto insert in close brackets
+inoremap { {<cr>}<c-o>O
+inoremap ( ()<esc>i
+inoremap [ []<esc>i
+inoremap " ""<esc>i
+inoremap < <><esc>i
+
 " OPERATORS
 
 " change '#' headings
