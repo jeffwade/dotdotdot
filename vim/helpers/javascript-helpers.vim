@@ -51,6 +51,12 @@ inoremap <buffer> " ""<esc>i
 " inoremap <buffer> = = ;<esc>i
 " Comparisons
 
+" CLASSES
+inoreabbrev <buffer> class classclassName extends classSuper {<cr>classBody<cr>}<esc>2k/class<cr>cw
+
+" REACT
+inoreabbrev <buffer> rclass classClassName extends React.Component {<cr>constructor(props) {<cr>super(props);<cr>classConstructor;<cr>}<cr><cr>render() {<cr>return classRender;<cr>}<cr>}<esc>9k/class<cr>cw
+inoreabbrev <buffer> rfn functionfnName(props) {<cr>fnCalcs<cr>return (<cr>fnReturn<cr>);<cr>}<esc>5k/fn<cr>cw
 
 
 
