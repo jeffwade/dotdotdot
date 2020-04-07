@@ -170,6 +170,17 @@ Plug 'tpope/vim-commentary'
 " Commentary shortcut (toggle Comment on current line)
 noremap <silent> <leader><space> :Commentary \| echo "💬 ↔️  💭"<cr>
 
+" install surround
+Plug 'tpope/vim-surround'
+" usage:
+" in normal mode
+" ds = delete surrounding
+" cs = change surrounding
+" ys = you surround (for use with movements)
+" in insert mode, use <c-s> and <c-S>
+" to create the surrounds and put the cursor inside
+
+
 
 " looking into forking this plugin and adding support for macOS
 " for now use <localleader>o to open the project in the browser
