@@ -8,7 +8,11 @@
 	email = jeffwade@users.noreply.github.com
 [core]
 	editor = nvim
-[credential]
-	helper = osxkeychain
+; [credential]
+	; helper = manager
 [merge]
-  tool = vimdiff
+	tool = vimdiff
+[init]
+	defaultBranch = main
+[mergetool "vimdiff"]
+	path = nvim
