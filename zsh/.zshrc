@@ -1,10 +1,10 @@
 # NAVIGATING THIS FILE (vim markers)
 # 'n --> NAVIGATION (here)
 # 'e --> ENVIRONMENT and PATH
-# 'f --> FUNCTIONS
 # 'a --> ALIASES
 #   'p --> PROJECTS
 #   'g --> GIT COMMANDS
+# 'f --> FUNCTIONS
 
 # The following lines were added by compinstall
 
@@ -61,6 +61,8 @@ bindkey -v
 # export GIT_PS1_SHOWSTASHSTATE=true
 # export GIT_PS1_SHOWUNTRACKEDFILES=true
 # export GIT_PS1_SHOWUPSTREAM="verbose name"
+export P5_SKETCHBOOK=/Users/jeff/Documents/code/p5js
+
 
 # spaceship theme
 autoload -U promptinit; promptinit
@@ -75,91 +77,6 @@ export PATH="/usr/local/sbin:$PATH"
 # activate jenv (java environment manager)
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
-
-################################################
-# FUNCTIONS
-################################################
-
-md () { 
-  # Create a directory and navigate to it.
-  mkdir -pv $1
-  cd $1
-}
-
-makeJournal () {
-  # clear current file
-  rm ~/Documents/personal/hoy/journal.md
-  # Add all entries to journal
-  for i
-  do
-    echo "------------\n# " $i "\n">> ~/Documents/personal/hoy/journal.md
-    cat $i >> ~/Documents/personal/hoy/journal.md
-    echo "\n\n" >> ~/Documents/personal/hoy/journal.md
-  done
-}
-
-toJournal () {
-  # Append entries to journal
-  for i
-  do
-    echo "------------\n# " $i "\n">> ~/Documents/personal/hoy/journal.md
-    cat $i >> ~/Documents/personal/hoy/journal.md
-    echo "\n\n" >> ~/Documents/personal/hoy/journal.md
-    # mv $i entries/`date '+%Y'`/`date '+%m'`
-  done
-}
-
-#### Functions for developing in processing
-# newpy3() {
-#   mkdir -pv $1
-#   cp ~/Documents/code/processing/py-standalone/processing-py.jar $1/
-#   cd $1
-#   vim $1.py
-# }
-
-# runp3() {
-#     processing $1
-# }
-
-# runpy3() {
-#     java -jar processing-py.jar $1.py
-# }
-
-function extract {
-  if [ -z "$1" ]; then
-    # display usage if no parameters given
-    echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
-    echo "       extract <path/file_name_1.ext> [path/file_name_2.ext] [path/file_name_3.ext]"
-    return 1
-  else
-    for n in $@
-    do
-      if [ -f "$n" ] ; then
-        case "${n%,}" in
-          *.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar) 
-            tar xvf "$n"       ;;
-          *.lzma)      unlzma ./"$n"      ;;
-          *.bz2)       bunzip2 ./"$n"     ;;
-          *.rar)       unrar x -ad ./"$n" ;;
-          *.gz)        gunzip ./"$n"      ;;
-          *.zip)       unzip ./"$n"       ;;
-          *.z)         uncompress ./"$n"  ;;
-          *.7z|*.arj|*.cab|*.chm|*.deb|*.dmg|*.iso|*.lzh|*.msi|*.rpm|*.udf|*.wim|*.xar)
-            7z x ./"$n"        ;;
-          *.xz)        unxz ./"$n"        ;;
-          *.exe)       cabextract ./"$n"  ;;
-          *)
-            echo "extract: '$n' - unknown archive method"
-            return 1
-            ;;
-        esac
-      else
-        echo "'$n' - file does not exist"
-        return 1
-      fi
-    done
-  fi
-}
 
 ################################################
 # ALIASES
@@ -337,6 +254,14 @@ alias ayer="cd ~/Documents/personal/hoy && vim hoy-`date -v-1d '+%Y%m%d-%a'`"
 # Processing
 alias p3="cd ~/Documents/code/processing"
 alias p3inspo="cd ~/Documents/code/processing/_inspiration"
+alias meditate="cd ~/Documents/code/processing/meditationcode"
+
+# Web dev, local testing
+alias ns="nodemon"
+alias loc='ff http://localhost:3000'
+
+# Raspberry Pi
+alias sshpi="ssh pi@192.168.1.140"
 
 #######
 # GIT COMMANDS
@@ -348,8 +273,6 @@ alias git="hub"
 # alias hub="lab"
 
 # start a repo
-alias gin="git init"
-alias gitin="git init"
 alias get="git clone"
 
 # checking status and history
@@ -358,6 +281,7 @@ alias gs="git status"
 alias gll="git log"
 # limit git log
 alias gl="git log --oneline"
+# limit to past N commits
 alias gl3="git log --oneline -3"
 alias gl5="git log --oneline -5"
 alias gl10="git log --oneline -10"
@@ -366,6 +290,7 @@ alias gl10="git log --oneline -10"
 alias ga="git add"
 alias ga.="git add ." # add the current directory (usually the whole project)
 alias ga!="git add -A" # add All changes
+alias gA="git add -A" # add All changes
 alias gap="git add -p" # patch staging
 alias gus="git restore --staged" # git unstage
 
@@ -402,23 +327,157 @@ alias goma="git checkout master" # go to master branch
 alias gnb="git checkout -b" #create new local branch and check it out
 alias gob="git checkout -b" #create new local branch and check it out
 
+# rebasing
+alias gre="git rebase -i"
+alias grb="git rebase -i"
+
 # merges
 alias gm="git merge"
+alias gmt="gt mergetool"
 alias gx="git diff" #git "e_x_amine/compare"
 
 # GITHUB COMMANDS
 alias gh="hub browse" #git hub
-# Issues
+## Issues
 alias gi="hub issue"
 alias gi.="hub issue create"
 alias gis="hub issue show"
 alias giu="hub issue update"
 alias gie="hub issue update --edit"
 
-# Pull-requests
+## Pull-requests
 alias gpr="hub pr"
 alias gpr.="hub pull-request -p"
 
 ################################################
-# Everything below heres has been `echo`ed into the file and needs to be sorted.
+# FUNCTIONS
+################################################
 
+md () {
+  # Create a directory and navigate to it.
+  mkdir -pv $1
+  cd $1
+}
+
+makeJournal () {
+  # clear current file
+  rm ~/Documents/personal/hoy/journal.md
+  # Add all entries to journal
+  for i
+  do
+    echo "------------\n# " $i "\n">> ~/Documents/personal/hoy/journal.md
+    cat $i >> ~/Documents/personal/hoy/journal.md
+    echo "\n\n" >> ~/Documents/personal/hoy/journal.md
+  done
+}
+
+toJournal () {
+  # Append entries to journal
+  for i
+  do
+    echo "------------\n# " $i "\n">> ~/Documents/personal/hoy/journal.md
+    cat $i >> ~/Documents/personal/hoy/journal.md
+    echo "\n\n" >> ~/Documents/personal/hoy/journal.md
+    # mv $i entries/`date '+%Y'`/`date '+%m'`
+  done
+}
+
+whichgit () {
+  echo "$(git config user.name)"
+  echo "$(git config user.email)"
+}
+alias wg="whichgit"
+
+switchgit () {
+  git config --local user.name "Loswade"
+  git config --local user.email "89751099+loswade@users.noreply.github.com"
+  git config --local credential.helper ""
+}
+alias sg="switchgit"
+
+gin () {
+  if test $# -gt 0; then
+    case "$1" in
+      -l|--lw|--loswade)
+        echo "Initializing git for Loswade"
+        git init
+        switchgit
+        return 1
+        ;;
+      -j|--jw|--jeffwade)
+        echo "Initializing git for Jeff Wade"
+        git init
+        return 1
+        ;;
+      *)
+        echo "Not a valid initialization.\nTry -l|--lw|--loswade or -j|--jw|--jeffwade."
+        return 0
+    esac
+  fi
+  git init
+}
+
+ungit () {
+  echo -n "Are you sure you want to unlink this git repo? (yes/no): >"
+  read CONFIRMATION
+  case "$CONFIRMATION" in
+    y|yes)
+      rm -rf "./.git"
+      echo ".git outta here"
+      return 1
+      ;;
+    *)
+      echo ".git's still here"
+      return 0
+      ;;
+  esac
+}
+
+source "$HOME/p5.sh"
+
+runp3 () {
+  processing-java --sketch=$(pwd) --run
+}
+
+# runpy3() {
+#     java -jar processing-py.jar $1.py
+# }
+
+function extract {
+  if [ -z "$1" ]; then
+    # display usage if no parameters given
+    echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
+    echo "       extract <path/file_name_1.ext> [path/file_name_2.ext] [path/file_name_3.ext]"
+    return 1
+  else
+    for n in $@
+    do
+      if [ -f "$n" ] ; then
+        case "${n%,}" in
+          *.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar) 
+            tar xvf "$n"       ;;
+          *.lzma)      unlzma ./"$n"      ;;
+          *.bz2)       bunzip2 ./"$n"     ;;
+          *.rar)       unrar x -ad ./"$n" ;;
+          *.gz)        gunzip ./"$n"      ;;
+          *.zip)       unzip ./"$n"       ;;
+          *.z)         uncompress ./"$n"  ;;
+          *.7z|*.arj|*.cab|*.chm|*.deb|*.dmg|*.iso|*.lzh|*.msi|*.rpm|*.udf|*.wim|*.xar)
+            7z x ./"$n"        ;;
+          *.xz)        unxz ./"$n"        ;;
+          *.exe)       cabextract ./"$n"  ;;
+          *)
+            echo "extract: '$n' - unknown archive method"
+            return 1
+            ;;
+        esac
+      else
+        echo "'$n' - file does not exist"
+        return 1
+      fi
+    done
+  fi
+}
+
+################################################
+# Everything below heres has been `echo`ed into the file and needs to be sorted.
