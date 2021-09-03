@@ -288,10 +288,10 @@ alias topm='top -o mem'
 
 # Recursively delete `.DS_Store` files
 alias cleands="find . -type f -name '*.DS_Store' -ls -delete"
-alias cleanbox="rm! /Users/jeff/Library/Application\ Support/Box/Box/cache/*"
 
-# Boldly go where no man has gone before
-alias engage="echo -n -e '\033]0;USS Enterprise\007' && play -n -c1 synth whitenoise lowpass -1 120 lowpass -1 120 lowpass -1 120 gain +14"
+# Clean out the Box cache
+alias cleanbox="rm! /Users/jeff/Library/Application\ Support/Box/Box/cache/*"
+alias unbox="cleanbox"
 
 # Play snake
 alias snake="python ~/Documents/games/snake.py"
