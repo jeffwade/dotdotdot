@@ -273,6 +273,9 @@ alias quicktime="open -a quicktime"
 alias handbrake="open -a handbrake"
 alias loom="open -a loom"
 
+# Start a simple HTTP server
+alias server="python -m SimpleHTTPServer 8000"
+
 # Echo my IP address
 alias myip="curl http://ipecho.net/plain; echo"
 
@@ -304,9 +307,9 @@ alias data="cd ~/Documents/code/_reference/my-data"
 alias gitref="cd /Users/jeff/Documents/code/_reference/progit/ && nvim -S Session.vim"
 ## CURRENT
 alias lvs="cd ~/Documents/code/vim/learnvimscriptthehardway/chapters && nvim -S Session.vim"
-alias js.="cd ~/Documents/code/web/training/lynda_js && nvim ."
-alias gats="cd /Users/jeff/Documents/code/web/gatsby-tutorial"
 ## PAST
+alias gats="cd /Users/jeff/Documents/code/web/gatsby-tutorial"
+alias js.="cd ~/Documents/code/web/training/lynda_js && nvim ."
 alias html="cd ~/Documents/code/web/training/lynda_html/site"
 alias css="cd ~/Documents/code/web/training/lynda_css/css-portfolio"
 
@@ -314,7 +317,10 @@ alias css="cd ~/Documents/code/web/training/lynda_css/css-portfolio"
 alias book="cd ~/Documents/ebooks/NarrativeFrederickDouglass/ && nvim -S Session.vim"
 
 # Play ops
-alias play="cd ~/Documents/personal/playops"
+alias playops="cd ~/Documents/personal/playops"
+
+# Fam
+alias akw="cd /Users/jeff/Documents/code/processing/akw"
 
 # Bridger website
 alias bw="cd /Users/jeff/Documents/code/web/bridger.work"
@@ -329,15 +335,15 @@ alias hoy="md ~/Documents/personal/hoy/entries/`date '+%Y'`/`date '+%m'` && vim 
 alias ayer="cd ~/Documents/personal/hoy && vim hoy-`date -v-1d '+%Y%m%d-%a'`"
 
 # Processing
-alias p3="cd ~/Documents/code/web/processing"
+alias p3="cd ~/Documents/code/processing"
 alias p3inspo="cd ~/Documents/code/processing/_inspiration"
 
 #######
 # GIT COMMANDS
 #######
 
-# Use gitlab as default.
-# Escape \hub or \git if you need it for something specific
+# Use github as default.
+# Escape \lab or \git if you need it for something specific
 alias git="hub"
 # alias hub="lab"
 
