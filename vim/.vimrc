@@ -5,22 +5,20 @@ let mapleader =","
 let maplocalleader ="="
 
 " enter command mode
-" nnoremap ; :
-" vnoremap ; :
-" open command history by default
-nnoremap ; q:i
-vnoremap ; q:i
-"open search history by default
-nnoremap / q/i
-vnoremap / q/i
-nnoremap ? q?i
-vnoremap ? q?i
-
-" open command list
-nnoremap <leader>; q:
+nnoremap ; :
+vnoremap ; :
+" open command history
+nnoremap : q:i
+vnoremap : q:i
+" open search history
+nnoremap ? q/i
+vnoremap ? q/i
 
 " enter shell command
 nnoremap <leader>: :!<space>
+
+" default semi-colon behavior
+nnoremap <leader>; ;
 
 " write the current buffer
 noremap <silent> <leader>w :silent w \| echo "♪♩♫♩ I'm trying to be like Jesus! 😇"<cr>
@@ -201,21 +199,25 @@ call plug#end()
 " ESCAPE (Just kidding)
 nnoremap <silent> <esc> <c-c><c-c>
 inoremap <silent> <esc> <c-c><c-c>
-
 inoremap <silent> jk <esc>:noh<cr>
 cnoremap <silent>jk <c-c>
 vnoremap <silent>JK <c-c>
 " discard input
 inoremap <silent> JK <esc>u:echo "🤡 jk"<cr>
+
+" SEARCH
+" swap under-cursor search directions
+nnoremap # *
+nnoremap * #
 " hide highlighting
 nnoremap <silent> <esc> :noh<cr>
-nnoremap <silent> <bs> :if &hlsearch \| echo "quiet, you!" \| else \| echo "👁  I can see!" \| endif \| set hlsearch!<cr>
+nnoremap <silent> <bs> :if &hlsearch \| echo "🤫 quiet, you!" \| else \| echo "👁  I can see!" \| endif \| set hlsearch!<cr>
 
 " Toggle line numbers
 nnoremap <silent>\| :setlocal rnu! nu! \| echo "🔢 toggloggle"<cr>
 
 " Toggle synced scrolling
-nnoremap <silent><leader>sl :setlocal scrollbind! \| if &scrollbind \| echo "⛓  Locked and loaded." \| else \| echo "🔓 Free at last!" \| endif<cr>
+nnoremap <silent><leader>\| :setlocal scrollbind! \| if &scrollbind \| echo "⛓  Locked and loaded." \| else \| echo "🔓 Free at last!" \| endif<cr>
 
 " Toggle word wrap
 nnoremap <silent><leader>> :setlocal wrap! \| if &wrap ==? 0 \| echo "🎁 like christmas morning" \| else \| echo "🎀 all wrapped up" \| endif<cr>
@@ -303,11 +305,11 @@ nnoremap <silent> <leader><s-h> <c-w><s-h>
 " hide other windows (only window)
 nnoremap <leader>o <c-w>o
 " vertical resize windows
-nnoremap <S-UP> 2<C-W>+
-nnoremap <S-DOWN> 2<C-W>-
+nnoremap <s-up> 2<c-w>+
+nnoremap <s-down> 2<c-w>-
 " horizontal resize windows
-nnoremap <S-RIGHT> 5<C-W>>
-nnoremap <S-LEFT> 5<C-W><
+nnoremap <s-right> 5<c-w>>
+nnoremap <s-left> 5<c-w><
 
 
 " TABS
@@ -324,9 +326,11 @@ cnoreabbrev t tab new
 " move to end of line
 nnoremap <s-l> g$
 nnoremap <leader>g$ $
+vnoremap <s-l> $
 " move to beginning of line
 nnoremap <s-h> g^
 nnoremap <leader>g^ ^
+vnoremap <s-h> ^
 " in parentheses
 onoremap p i(
 " in angle brackets
@@ -452,6 +456,18 @@ augroup javascript_helpers
   autocmd FileType javascript setlocal foldmethod=indent
 augroup END
 " }}} END JavaScript helpers
+
+" Java helpers ----------------------- {{{
+augroup java_helpers
+  autocmd!
+  " load abbreviations for snippets, &c
+  autocmd BufRead,BufNew *.pde :set filetype=java
+  autocmd FileType java :source ~/.vim/helpers/java-helpers.vim
+  " load the project index
+  autocmd FileType java nnoremap <silent> <buffer> <leader>r :silent w<cr> :! processing-java --sketch=$(pwd) --run<cr>
+  autocmd FileType java setlocal foldmethod=indent
+augroup END
+" }}} END Java helpers
 
 " Markdown helpers ----------------------- {{{
 augroup markdown_helpers
