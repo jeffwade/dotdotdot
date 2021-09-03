@@ -217,6 +217,12 @@ alias rm!="rm -rfv" #just get rid of it
 # Better folder creation
 alias mkdir="mkdir -pv"
 
+# brew simpler
+alias brewery="brew update && brew upgrade && brew cleanup"
+
+# less time taken typing less 
+alias l="less"
+
 # Use neovim and open it easier
 alias vim="nvim"
 alias v="nvim"
@@ -232,37 +238,37 @@ alias py3.="runpy3"
 alias pip="pip3"
 
 # Opening GUI apps
-# entertainment
-alias steam="open -a steam"
-# Start Spotify without ads
+## Start Spotify without ads
 alias music="open -a mutespotifyads"
+alias respot.="brew cask reinstall spotify && nvim ~/Library/Application\ Support/Spotify/Users/jeffwade-user/ad-state-storage.bnk"
+alias cleanspot="nvim ~/Library/Application\ Support/Spotify/Users/jeffwade-user/ad-state-storage.bnk"
 
-
-# open current directory
+## open current directory
 alias finder="open ."
 
-# open browsers
+## open browsers
 alias chrome="open -a google\ chrome"
 alias firefox="open -a firefox"
+alias ff="open -a firefox"
 alias browse="open -a firefox"
 
-# work/team tools
+## work/team tools
 alias slack="open -a slack"
 alias notion="open -a notion"
 alias notes="open -a notion"
 alias harvest="open -a harvest"
 alias messages="open -a messages"
 
-# start design tools
+## start design tools
 alias figma="open -a figma"
-alias sketch="open -a sketch"
+# alias sketch="open -a sketch"
 alias framer="open -a framer\ x"
 
-# 3d tools
+## 3d tools
 alias unity="open -a unity\ hub"
 alias blender="open -a blender"
 
-# start video tools
+## start video tools
 alias quicktime="open -a quicktime"
 alias handbrake="open -a handbrake"
 alias loom="open -a loom"
