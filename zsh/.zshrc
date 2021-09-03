@@ -207,12 +207,11 @@ alias f.="find . -name"
 alias grep="grep --color=auto --exclude-dir=\.git"
 
 # Make some possibly destructive commands more interactive.
-alias rm="rm -v"
 alias rmi="rm -iv"
-alias mv="mv -v"
 alias mvi="mv -iv"
-alias cp="cp -v"
 alias cpi="cp -iv"
+
+# If you really want to get rid of something, go out with a bang!
 alias rm!="rm -rfv" #just get rid of it
 
 # Better folder creation
