@@ -40,3 +40,5 @@ application.macosx
 *.mp4
 *.wav
 
+#vim session files
+*.vim
