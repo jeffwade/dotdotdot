@@ -236,6 +236,9 @@ alias book="cd ~/Documents/ebooks/NarrativeFrederickDouglass/ && nvim -S Session
 # Play ops
 alias playops="cd ~/Documents/personal/playops"
 
+# My website
+alias jw="/Users/jeff/Documents/code/web/jeffwade"
+
 # Fam
 alias akw="cd /Users/jeff/Documents/code/processing/akw"
 
@@ -313,8 +316,8 @@ alias gtd="git stash drop"
 # working with remote repos
 alias gr="git remote"
 alias gra="git remote add"
+alias grd="git push -d"
 alias gpb="git push --set-upstream origin" #set up a remote branch 'git push branch'
-alias gpsu="git push --set-upstream origin" #set up a remote branch 'git push set upstream'
 alias gp="git push"
 alias gp!="git push -f" # force push
 alias gd="git pull" # git download
