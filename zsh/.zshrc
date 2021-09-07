@@ -61,8 +61,8 @@ bindkey -v
 # export GIT_PS1_SHOWSTASHSTATE=true
 # export GIT_PS1_SHOWUNTRACKEDFILES=true
 # export GIT_PS1_SHOWUPSTREAM="verbose name"
-export P5_SKETCHBOOK=/Users/jeff/Documents/code/p5js
-
+export P5_SKETCHBOOK="/Users/jeff/Documents/code/p5js"
+export SCRIPTS_DIR="/Users/jeff/.shellscripts"
 
 # spaceship theme
 autoload -U promptinit; promptinit
@@ -71,9 +71,7 @@ prompt spaceship
 #######
 # PATH
 #######
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:/usr/local/sbin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-
 # activate jenv (java environment manager)
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
@@ -436,7 +434,8 @@ ungit () {
   esac
 }
 
-source "$HOME/p5.sh"
+# Custom shell scripts
+source "$SCRIPTS_DIR/p5.sh"
 
 runp3 () {
   processing-java --sketch=$(pwd) --run
