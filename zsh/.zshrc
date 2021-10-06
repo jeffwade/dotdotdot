@@ -157,6 +157,8 @@ alias vs="nvim -S"
 alias processing="processing-java"
 alias p3.="runp3"
 alias py3.="runpy3"
+# p5.js
+alias pdev="nodemon app.js"
 
 # Use the right Python installer
 alias pip="pip3"
@@ -243,8 +245,12 @@ alias book="cd ~/Documents/ebooks/NarrativeFrederickDouglass/ && nvim -S Session
 # Play ops
 alias playops="cd ~/Documents/personal/playops"
 
-# My website
-alias jw="/Users/jeff/Documents/code/web/jeffwade"
+# My website [jeffdo.es](https://jeffdo.es)
+alias jw="cd /Users/jeff/Documents/code/web/jeffdoes"
+alias jw.="cd /Users/jeff/Documents/code/web/jeffdoes/src && nvim ."
+alias deploy="npm run deploy"
+alias gdev="gatsby develop"
+alias ndev="npm run dev"
 
 # Fam
 alias akw="cd /Users/jeff/Documents/code/processing/akw"
@@ -495,4 +501,4 @@ source $HOME/.shellscripts/p5.sh
 source $HOME/.shellscripts/new.sh
 
 ################################################
-# Everything below heres has been `echo`ed into the file and needs to be sorted.
+# Everything below here has been echoed into the file and needs to be sorted.
