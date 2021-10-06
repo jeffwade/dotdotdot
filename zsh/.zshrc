@@ -110,7 +110,10 @@ alias hidedesk="defaults write com.apple.finder CreateDesktop -bool false && kil
 alias showdesk="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
 # Copy the current path to the system clipboard
-alias cwd="echo -n "$(pwd)" | pbcopy"
+alias cwd="echo -n "$PWD" | pbcopy"
+
+# Clear the clipboard
+alias cx="echo -n | pbcopy"
 
 # Add some easy shortcuts for formatted directory listings and add a touch of color.
 alias ls="ls -F"
@@ -129,8 +132,11 @@ alias rmi="rm -iv"
 alias mvi="mv -iv"
 alias cpi="cp -iv"
 
+# Remove directory
+alias rd="echo 'removing directory' && rm -rf"
+
 # If you really want to get rid of something, go out with a bang!
-alias rm!="rm -rfv" #just get rid of it
+alias rm!="echo 'borrado!' && rm -rf" #just get rid of it
 
 # Better folder creation
 alias mkdir="mkdir -pv"
@@ -225,8 +231,8 @@ alias data="cd ~/Documents/code/_reference/my-data"
 alias gitref="cd /Users/jeff/Documents/code/_reference/progit/ && nvim -S Session.vim"
 ## CURRENT
 alias lvs="cd ~/Documents/code/vim/learnvimscriptthehardway/chapters && nvim -S Session.vim"
-## PAST
 alias gats="cd /Users/jeff/Documents/code/web/gatsby-tutorial"
+## PAST
 alias js.="cd ~/Documents/code/web/training/lynda_js && nvim ."
 alias html="cd ~/Documents/code/web/training/lynda_html/site"
 alias css="cd ~/Documents/code/web/training/lynda_css/css-portfolio"
@@ -392,12 +398,9 @@ whichgit () {
 }
 alias wg="whichgit"
 
-switchgit () {
-  git config --local user.name "Loswade"
-  git config --local user.email "89751099+loswade@users.noreply.github.com"
-  git config --local credential.helper ""
-}
-alias sg="switchgit"
+# switchgit () {
+# }
+# alias sg="switchgit"
 
 gin () {
   if test $# -gt 0; then
