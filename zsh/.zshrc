@@ -279,6 +279,26 @@ alias loc='ff http://localhost:3000'
 # Raspberry Pi
 alias sshpi="ssh pi@192.168.1.140"
 
+# Mechanic
+mech () {
+  if test $# -gt 0; then
+    case "$1" in
+      -h|--help)
+        echo "usage: mech [-h] [project-name]"
+        echo "creates a new mechanic project"
+        echo "passed without arguments, will execute npm run new"
+        ;;
+      *)
+        npm init mechanic@latest "$1"
+        cd "$1"
+        ;;
+    esac
+  else
+    npm run new
+  fi
+}
+
+
 #######
 # GIT COMMANDS
 #######
