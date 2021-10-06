@@ -5,6 +5,7 @@
 #   'p --> PROJECTS
 #   'g --> GIT COMMANDS
 # 'f --> FUNCTIONS
+#   's --> SOURCED FUNCTIONS
 
 # The following lines were added by compinstall
 
@@ -75,6 +76,8 @@ export PATH="/usr/local/sbin:$PATH"
 # activate jenv (java environment manager)
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
+# get my own custom scripts
+# export PATH="$HOME/.shellscripts:$PATH"
 
 ################################################
 # ALIASES
@@ -434,9 +437,6 @@ ungit () {
   esac
 }
 
-# Custom shell scripts
-source "$SCRIPTS_DIR/p5.sh"
-
 runp3 () {
   processing-java --sketch=$(pwd) --run
 }
@@ -480,6 +480,16 @@ function extract {
     done
   fi
 }
+
+#########################
+# SOURCED FUNCTIONS
+#########################
+# These go after everything else because I know there are dependency issues
+# script for creating new p5 projects
+source $HOME/.shellscripts/p5.sh
+# script for creating new projects
+# NEEDS WORK
+source $HOME/.shellscripts/new.sh
 
 ################################################
 # Everything below heres has been `echo`ed into the file and needs to be sorted.
