@@ -464,6 +464,7 @@ augroup javascript_helpers
   autocmd!
   " load abbreviations for snippets, &c
   autocmd FileType javascript :source ~/.vim/helpers/javascript-helpers.vim
+  autocmd FileType javascript :source ~/.vim/helpers/jsx-helpers.vim
   " load the project index
   autocmd FileType javascript nnoremap <silent> <buffer> <localleader>o :silent w<cr> :silent ! open index.html \| echo "👀 Let's see this."<cr>
   autocmd FileType javascript setlocal foldmethod=indent
@@ -477,7 +478,7 @@ augroup java_helpers
   autocmd BufRead,BufNew *.pde :set filetype=java
   autocmd FileType java :source ~/.vim/helpers/java-helpers.vim
   " load the project index
-  autocmd FileType java nnoremap <silent> <buffer> <leader>r :silent w<cr> :! processing-java --sketch=$(pwd) --run<cr>
+  autocmd FileType java nnoremap <silent> <buffer> <localleader>r :silent w<cr> :! processing-java --sketch=$(pwd) --run<cr>
   autocmd FileType java setlocal foldmethod=indent
 augroup END
 " }}} END Java helpers
