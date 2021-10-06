@@ -288,6 +288,9 @@ alias sshpi="ssh pi@192.168.1.140"
 alias git="hub"
 # alias hub="lab"
 
+#edit .gitignore
+alias .gi="vim ./.gitignore || vim ../.gitignore"
+
 # start a repo
 alias get="git clone"
 
@@ -308,12 +311,15 @@ alias ga.="git add ." # add the current directory (usually the whole project)
 alias ga!="git add -A" # add All changes
 alias gA="git add -A" # add All changes
 alias gap="git add -p" # patch staging
+alias gre="git restore"
+alias gres="git restore --staged" # git unstage
 alias gus="git restore --staged" # git unstage
 
 # commits
 alias gc="git commit -m" # always add a message inline
 alias gca="git commit -am" # add changes and commit -> "git commit add"
-alias gac="git commit -am" # add changes and commit -> "git add commit"
+# alias gac="git add $1 && git commit -m $2" # add changes and commit -> "git add commit"
+# Need to write function that handles this
 alias gc!="git add -A && git commit -m" 
 alias gcx="git commit --amend" # amend the last commit
 alias gz="git reset" # git undo last commit
@@ -329,27 +335,28 @@ alias gtd="git stash drop"
 # working with remote repos
 alias gr="git remote"
 alias gra="git remote add"
-alias grd="git push -d"
+alias grd="git push -d" #git remote delete
 alias gpb="git push --set-upstream origin" #set up a remote branch 'git push branch'
 alias gp="git push"
-alias gp!="git push -f" # force push
+alias gp!="git push -f" # ! force push
 alias gd="git pull" # git download
+alias gg="git pull" # git get
 
 # branches
 alias gb="git branch"
 alias gbd="git branch -d" #delete branch
 alias go="git checkout" # go to branch
-alias goma="git checkout master" # go to master branch
-alias gnb="git checkout -b" #create new local branch and check it out
+alias gom="git checkout main" # go to main branch
+alias gos="git checkout source" # go to source branch
 alias gob="git checkout -b" #create new local branch and check it out
 
 # rebasing
-alias gre="git rebase -i"
-alias grb="git rebase -i"
+alias grb="git rebase"
+alias grbi="git rebase -i"
 
 # merges
 alias gm="git merge"
-alias gmt="gt mergetool"
+alias gmt="git mergetool"
 alias gx="git diff" #git "e_x_amine/compare"
 
 # GITHUB COMMANDS
@@ -414,17 +421,20 @@ gin () {
       -l|--lw|--loswade)
         echo "Initializing git for Loswade"
         git init
-        switchgit
-        return 1
+        git config --local user.name "loswade"
+        git config --local user.email "89751099+loswade@users.noreply.github.com"
+        return 0
         ;;
       -j|--jw|--jeffwade)
         echo "Initializing git for Jeff Wade"
         git init
-        return 1
+        git config --local user.name "jeffwade"
+        git config --local user.email "jeffwade@users.noreply.github.com"
+        return 0
         ;;
       *)
         echo "Not a valid initialization.\nTry -l|--lw|--loswade or -j|--jw|--jeffwade."
-        return 0
+        return 1
     esac
   fi
   git init
@@ -432,6 +442,7 @@ gin () {
 
 ungit () {
   echo -n "Are you sure you want to unlink this git repo? (yes/no): >"
+  local CONFIRMATION
   read CONFIRMATION
   case "$CONFIRMATION" in
     y|yes)
