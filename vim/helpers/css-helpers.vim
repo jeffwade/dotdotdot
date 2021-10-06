@@ -22,9 +22,9 @@ inoreabbrev <buffer> mq @media only screen and (queryConditions) {<cr>querySelec
 inoreabbrev <buffer> sg <cr>/*selectorGroupTitle {{{*/<cr>selectorGroupContent<cr>/* end selectorGroupTitle }}}*/<cr><esc>3k0/selectorGroup<cr>zocw
 
 " oo<space> inserts a new property
-inoreabbrev <buffer> o >propName: propValue;<esc>0/prop<cr>cw<bs>
-inoreabbrev <buffer> O >propName: propValue;<esc>0/prop<cr>cw<bs>
-inoreabbrev <buffer> p >propName: propValue;<esc>0/prop<cr>cw<bs>
+inoreabbrev <buffer> o >propName: propValue;<esc>0/prop<cr>cw<bs><bs><space>
+inoreabbrev <buffer> O >propName: propValue;<esc>0/prop<cr>cw<bs><bs><space>
+inoreabbrev <buffer> p >propName: propValue;<esc>0/prop<cr>cw<bs><bs><space>
 
 " insert a comment
 inoreabbrev <buffer> / /*commentBody */<esc>?commentBody<cr>cw
