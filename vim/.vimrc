@@ -303,6 +303,11 @@ nnoremap <silent> <c-w><s-j> :split<cr><c-w>j:enew<cr>
 nnoremap <silent> <c-w><s-k> :split \| enew<cr>
 nnoremap <silent> <c-w><s-l> :vsplit<cr><c-w>l:enew<cr>
 nnoremap <silent> <c-w><s-h> :vsplit \| enew<cr>
+" Open the previous buffer in each direction
+nnoremap <leader><c-h> :execute "leftabove :vsplit " . bufname('#')<cr>
+nnoremap <leader><c-k> :execute "leftabove :split " . bufname('#')<cr>
+nnoremap <leader><c-l> :execute "rightbelow :vsplit " . bufname('#')<cr>
+nnoremap <leader><c-j> :execute "rightbelow :split " . bufname('#')<cr>
 " move between windows
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -349,6 +354,10 @@ onoremap < i<
 onoremap > i>
 " in quotation marks
 onoremap q i"
+
+" Character swap
+" nnoremap <c-l> xp
+" nnoremap <c-h> xhP
 
 
 " LINE OPERATIONS
@@ -511,6 +520,10 @@ augroup END
 
 " Change current word to uppercase
 inoremap <c-u> <esc>viwUi
-nnoremap <leader><c-u> viwU
+nnoremap <leader><s-u> viwU
+" Toggle case of current word
+nnoremap <leader>~ viw~
+" Toggle case of first letter in word
+nnoremap <s-u> b~
 
 " }}}
