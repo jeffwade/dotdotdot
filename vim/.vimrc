@@ -7,15 +7,21 @@ let maplocalleader ="="
 " enter command mode
 nnoremap ; :
 vnoremap ; :
+" switch visual and visual block modes
+nnoremap v <c-v>
+nnoremap <c-v> v
+
+vnoremap JK <esc>
+
 " open command history
-nnoremap : q:i
-vnoremap : q:i
+nnoremap <leader>: q:i
+vnoremap <leader>: q:i
 " open search history
-nnoremap ? q/i
-vnoremap ? q/i
+nnoremap <leader>? q/i
+vnoremap <leader>? q/i
 
 " enter shell command
-nnoremap <leader>: :!<space>
+nnoremap <localleader>; :!<space>
 
 " default semi-colon behavior
 nnoremap <leader>; ;
@@ -245,35 +251,40 @@ inoremap JL <esc>ncw
 " search for the second-to-last term
 nnoremap <silent> <localleader>\ q/kk<cr>:noh<cr>
 
-" Working on project files
-" Opening files outside of vim
+" search for word under cursor easier
+nnoremap ? *
+" replace last search term easier
+nnoremap <leader>r *:%s//
+
+" working on project files
+" opening files outside of vim
 " open current buffer in the system default
-nnoremap <silent> <localleader>o :echo "🧬 Splicing mitochondrial DNA"<cr> :silent w<cr> :silent ! open %<CR>
+nnoremap <silent> <localleader>o :echo "🧬 splicing mitochondrial dna"<cr> :silent w<cr> :silent ! open %<cr>
 " change the working directory to the open file's path
 nnoremap <leader>cd :cd %:p:h \| pwd<cr>
-" Save current session in working directory
-nnoremap <leader>ms :mksession! \| echo "✅ Sesh cached"<cr>
+" save current session in working directory
+nnoremap <leader>ms :mksession! \| echo "✅ sesh cached"<cr>
 
-" LISTING THINGS
+" listing things
 "list buffers
-nnoremap <silent><leader>lb :echo "💥 All your buffers are belong to us!" \| ls<cr>
+nnoremap <silent><leader>lb :echo "💥 all your buffers are belong to us!" \| ls<cr>
 " list marks
-nnoremap <silent><leader>lm :echo "🗺  I wish the world were flat, like the old days" \| marks<cr>
+nnoremap <silent><leader>lm :echo "🗺  i wish the world were flat, like the old days" \| marks<cr>
 " list registers
-nnoremap <silent><leader>lr :echo "💰 I can ring you up over here." \| reg<cr>
+nnoremap <silent><leader>lr :echo "💰 i can ring you up over here." \| reg<cr>
 " list search history
-nnoremap <silent> <leader>lh :echo "📜 Searching the archives." \| history<cr>
+nnoremap <silent> <leader>lh :echo "📜 searching the archives." \| history<cr>
 
-" BUFFERS
+" buffers
 "tab through buffers
 nnoremap <leader><tab> :b<space>
 " load next buffer
-nnoremap <silent> <c-n> :bn \| echo "➡️  Next!"<cr>
-nnoremap <silent> <leader>n :bn \| echo "➡️  Next!"<cr>
+nnoremap <silent> <c-n> :bn \| echo "➡️  next!"<cr>
+nnoremap <silent> <leader>n :bn \| echo "➡️  next!"<cr>
 " load previous buffer
-nnoremap <silent> <c-p> :bp \| echo "⬅️  Back up!"<cr>
+nnoremap <silent> <c-p> :bp \| echo "⬅️  back up!"<cr>
 " hide the current buffer
-noremap <silent> <leader>q :q \| echo "👻 Quitted."<cr>
+noremap <silent> <leader>q :q \| echo "👻 quitted."<cr>
 " delete current buffer
 noremap <leader>x :bd \| echo "🚮 baleted!"<cr>
 " discard current buffer
@@ -361,7 +372,7 @@ nnoremap <s-y> y$
 inoremap <c-h> <left>
 inoremap <c-l> <right>
 " add line above and enter insert mode
-inoremap <C-k> <c-o>O
+inoremap <c-k> <c-o>O
 inoremap <c-j> <c-o>o
 
 " WRAPPING WORDS
@@ -419,9 +430,11 @@ nnoremap <silent> <localleader><s-e> :vsplit ~/.vimrc<cr><c-w><s-l>:echo "🎹 F
 nnoremap <silent> <localleader>s :source ~/.vimrc<cr> :noh<cr> :echo "👩 Now we're cooking!"<cr>
 " _H_ opens helpers picker next to the current buffer
 nnoremap <silent> <localleader><s-h> :vsplit ~/.vim/helpers<cr><c-w><s-l>:echo "🚨 Haalp...ers!"<cr>
+" _L_ opens helpers picker next to the current buffer
+nnoremap <silent> <localleader><s-s> :vsplit ~/.shellscripts<cr><c-w><s-l>:echo "🪵 Log me in, please"<cr>
 "
 " open key default key mappings
-nnoremap <silent> <Leader>? :tab help index \| echo "🔑 Where'd I put my keys?"<cr>
+nnoremap <silent> <localleader>? :tab help index \| echo "🔑 Where'd I put my keys?"<cr>
 " }}} END dotfile editing
 
 " }}}
