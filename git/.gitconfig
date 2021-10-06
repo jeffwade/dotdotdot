@@ -3,16 +3,16 @@
 [includeIf "gitdir:personal/"]
   path = ~/.gitconfig-lab
 
-[user]
-	name = Jeff Wade
-	email = jeffwade@users.noreply.github.com
 [core]
 	editor = nvim
-; [credential]
-	; helper = manager
+[mergetool "vimdiff"]
+	path = nvim
+[diff]
+	tool = vimdiff
 [merge]
 	tool = vimdiff
 [init]
 	defaultBranch = main
-[mergetool "vimdiff"]
-	path = nvim
+[user]
+	name = Jeff Wade
+	email = jeffwade@users.noreply.github.com
