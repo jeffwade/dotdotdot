@@ -20,6 +20,12 @@ vnoremap <leader>: q:i
 nnoremap <leader>? q/i
 vnoremap <leader>? q/i
 
+" copy last register to clipboard
+nnoremap <localleader>c :let @*=@"<cr>
+" paste from the clipboard before cursor
+nnoremap <localleader>v "*P
+
+
 " enter shell command
 nnoremap <localleader>; :!<space>
 
@@ -55,13 +61,13 @@ set foldlevelstart=3
 hi Folded ctermbg=236 cterm=italic
 set foldopen=hor,mark,percent,quickfix,search,tag,undo
 
-" STATUS LINE
+" STATUS LINE/BAR
 set statusline=[%n]\        " bufferNumber:
 set statusline+=%f          " relative filepath
 set statusline+=%=          " space
 set statusline+=%m          " Modified flag
 set statusline+=%=          " space
-set statusline+=%l/%L\      " [currentLine:totalLines]
+set statusline+=%c:%l/%L\   " column:currentLine/totalLines
 set statusline+=(%P)\       " Percentage in window
 set statusline+=%y\         " FileType
 
@@ -184,17 +190,24 @@ Plug 'tpope/vim-surround'
 " in insert mode, use <c-s> and <c-S>
 " to create the surrounds and put the cursor inside
 
+" " auto insert in close brackets
+" imap { cs{
+" imap } cs}
+" imap ( cs(
+" imap ) cs)
+" imap [ cs[
+" imap ] cs]
+" imap " cs"
+" imap ' cs'
+" imap ` cs`
+" imap < cs<
+" imap > cs>
 
+" Install prettier
+Plug 'prettier/vim-prettier', { 'do': 'node install' }
 
-" looking into forking this plugin and adding support for macOS
-" for now use <localleader>o to open the project in the browser
-" without live preview / server support
-"
-" install Bracey (plugin for live html, css, and javascript editing in vim) 
-" Plug 'turbio/bracey.vim'
-" Usage :Bracey
-" Bracey shortcut
-" nnoremap <leader>b :Bracey<CR>
+" Highlighting for solidity
+Plug 'tomlion/vim-solidity'
 
 call plug#end()
 
@@ -220,7 +233,7 @@ nnoremap <silent> <esc> :noh<cr>
 nnoremap <silent> <bs> :if &hlsearch \| echo "🤫 quiet, you!" \| else \| echo "👁  I can see!" \| endif \| set hlsearch!<cr>
 
 " Toggle line numbers
-nnoremap <silent>\| :setlocal rnu! nu! \| echo "🔢 toggloggle"<cr>
+nnoremap <silent><localleader>\| :setlocal rnu! nu! \| echo "🔢 toggloggle"<cr>
 
 " Toggle synced scrolling
 nnoremap <silent><leader>\| :setlocal scrollbind! \| if &scrollbind \| echo "⛓  Locked and loaded." \| else \| echo "🔓 Free at last!" \| endif<cr>
@@ -244,7 +257,7 @@ nnoremap <silent><leader>> :setlocal wrap! \| if &wrap ==? 0 \| echo "🎁 like 
 " [result]:     var theAnswer = 42;
 " ----------------------------------}}}
 nnoremap JL ncw
-inoremap JL <esc>ncw
+inoremap JL <c-g>u<esc>ncw
 " (effectively) clear the search
 " so you don't accidentally jump to replace
 " something after you're done with a snippet
@@ -280,7 +293,6 @@ nnoremap <silent> <leader>lh :echo "📜 searching the archives." \| history<cr>
 nnoremap <leader><tab> :b<space>
 " load next buffer
 nnoremap <silent> <c-n> :bn \| echo "➡️  next!"<cr>
-nnoremap <silent> <leader>n :bn \| echo "➡️  next!"<cr>
 " load previous buffer
 nnoremap <silent> <c-p> :bp \| echo "⬅️  back up!"<cr>
 " hide the current buffer
@@ -290,7 +302,7 @@ noremap <leader>x :bd \| echo "🚮 baleted!"<cr>
 " discard current buffer
 noremap <leader><s-x> :bd! \| echo "🚮 baleted!"<cr>
 " rename the current buffer
-nnoremap <leader><s-r> :f 
+nnoremap <leader><s-r> :f ./
 " set the filetype of the current buffer
 nnoremap <leader><s-f> :set filetype=
 " write all buffers
@@ -299,10 +311,10 @@ nnoremap <leader><s-w> :wa \| echo "🧻 It is written!"<cr>
 
 " WINDOWS
 " Create new windows in each direction
-nnoremap <silent> <c-w><s-j> :split<cr><c-w>j:enew<cr>
-nnoremap <silent> <c-w><s-k> :split \| enew<cr>
-nnoremap <silent> <c-w><s-l> :vsplit<cr><c-w>l:enew<cr>
-nnoremap <silent> <c-w><s-h> :vsplit \| enew<cr>
+nnoremap <silent> <leader>nj :split<cr><c-w>j:enew<cr>
+nnoremap <silent> <leader>nk :split \| enew<cr>
+nnoremap <silent> <leader>nl :vsplit<cr><c-w>l:enew<cr>
+nnoremap <silent> <leader>nh :vsplit \| enew<cr>
 " Open the previous buffer in each direction
 nnoremap <leader><c-h> :execute "leftabove :vsplit " . bufname('#')<cr>
 nnoremap <leader><c-k> :execute "leftabove :split " . bufname('#')<cr>
@@ -380,9 +392,12 @@ nnoremap <s-y> y$
 " Moving in insert mode
 inoremap <c-h> <left>
 inoremap <c-l> <right>
-" add line above and enter insert mode
-inoremap <c-k> <c-o>O
-inoremap <c-j> <c-o>o
+" add line above and enter insert mode (breaks undo sequence)
+inoremap <c-k> <c-g>u<c-o>O
+inoremap <c-j> <c-g>u<c-o>o
+" new line breaks undo sequence
+inoremap <cr> <c-g>u<cr>
+
 
 " WRAPPING WORDS
 " Wrap current word in double quotes
@@ -473,12 +488,20 @@ augroup javascript_helpers
   autocmd!
   " load abbreviations for snippets, &c
   autocmd FileType javascript :source ~/.vim/helpers/javascript-helpers.vim
-  autocmd FileType javascript :source ~/.vim/helpers/jsx-helpers.vim
-  " load the project index
-  autocmd FileType javascript nnoremap <silent> <buffer> <localleader>o :silent w<cr> :silent ! open index.html \| echo "👀 Let's see this."<cr>
   autocmd FileType javascript setlocal foldmethod=indent
 augroup END
 " }}} END JavaScript helpers
+
+" React helpers ----------------------- {{{
+augroup react_helpers
+  autocmd!
+  " load abbreviations for snippets, &c
+  autocmd FileType javascriptreact :source ~/.vim/helpers/jsx-helpers.vim
+  autocmd FileType javascriptreact :source ~/.vim/helpers/javascript-helpers.vim
+  autocmd FileType javascriptreact :source ~/.vim/helpers/html-helpers.vim
+  autocmd FileType javascriptreact setlocal foldmethod=indent
+augroup END
+" }}} END React helpers
 
 " Java helpers ----------------------- {{{
 augroup java_helpers
@@ -519,11 +542,10 @@ augroup END
 " use 'em for a while, then put them where they go, or delete them
 
 " Change current word to uppercase
-inoremap <c-u> <esc>viwUi
-nnoremap <leader><s-u> viwU
+inoremap <c-u> <esc>mqviwU`qa
 " Toggle case of current word
-nnoremap <leader>~ viw~
+nnoremap <s-u> mqviw~`q
 " Toggle case of first letter in word
-nnoremap <s-u> b~
+nnoremap <leader><s-u> b~
 
 " }}}

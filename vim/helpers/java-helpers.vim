@@ -39,26 +39,8 @@ inoreabbrev <buffer> t? ternaryCondition ? ternaryIf : ternaryElse<esc>7b/ternar
 inoreabbrev <buffer> i? ternaryCondition ? ternaryIf : ternaryElse<esc>7b/ternary<cr>cw
 inoreabbrev <buffer> iff ternaryCondition ? ternaryIf : ternaryElse;<esc>7b/ternary<cr>cw
 
-" BLOCKS
-inoremap <buffer> ( ()<esc>i
-inoremap <buffer> { {}<esc>i
-inoremap <buffer> [ []<esc>i
-
-" Quotes
-inoremap <buffer> ' ''<esc>i
-inoremap <buffer> " ""<esc>i
-" Assignment
-" inoremap <buffer> = = ;<esc>i
-" Comparisons
-
 " CLASSES
 inoreabbrev <buffer> class classclassName extends classSuper {<cr>classBody<cr>}<esc>2k/class<cr>cw
-
-" REACT
-inoreabbrev <buffer> rclass classClassName extends React.Component {<cr>constructor(props) {<cr>super(props);<cr>classConstructor;<cr>}<cr><cr>render() {<cr>return classRender;<cr>}<cr>}<esc>9k/class<cr>cw
-inoreabbrev <buffer> rfn functionfnName(props) {<cr>fnCalcs<cr>return (<cr>fnReturn<cr>);<cr>}<esc>5k/fn<cr>cw
-
-
 
 "LOOPS
 inoreabbrev <buffer> for for (forConditions ) {<cr>forBody<cr>}<esc>5b/for<cr>cw

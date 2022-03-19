@@ -246,8 +246,8 @@ alias book="cd ~/Documents/ebooks/NarrativeFrederickDouglass/ && nvim -S Session
 alias playops="cd ~/Documents/personal/playops"
 
 # My website [jeffdo.es](https://jeffdo.es)
-alias jw="cd /Users/jeff/Documents/code/web/jeffdoes"
-alias jw.="cd /Users/jeff/Documents/code/web/jeffdoes/src && nvim ."
+alias jw="cd /Users/jeff/Documents/code/web/personal/jeffdoes"
+alias jw.="cd /Users/jeff/Documents/code/web/personal/jeffdoes/src && nvim ."
 alias deploy="npm run deploy"
 alias gdev="gatsby develop"
 alias ndev="npm run dev"
@@ -283,14 +283,21 @@ alias sshpi="ssh pi@192.168.1.140"
 mech () {
   if test $# -gt 0; then
     case "$1" in
-      -h|--help)
+      -h|--help|help)
         echo "usage: mech [-h] [project-name]"
         echo "creates a new mechanic project"
         echo "passed without arguments, will execute npm run new"
+        return 0
+        ;;
+      -n|--new|new)
+        shift
+        npm init mechanic@latest "$1"
+        return 0
         ;;
       *)
         npm init mechanic@latest "$1"
         cd "$1"
+        return 0
         ;;
     esac
   else
@@ -305,7 +312,7 @@ mech () {
 
 # Use github as default.
 # Escape \lab or \git if you need it for something specific
-alias git="hub"
+# alias git="hub"
 # alias hub="lab"
 
 #edit .gitignore
@@ -380,17 +387,19 @@ alias gmt="git mergetool"
 alias gx="git diff" #git "e_x_amine/compare"
 
 # GITHUB COMMANDS
-alias gh="hub browse" #git hub
+# alias gh="gh browse" #git hub
 ## Issues
-alias gi="hub issue"
-alias gi.="hub issue create"
-alias gis="hub issue show"
-alias giu="hub issue update"
-alias gie="hub issue update --edit"
+alias gi="gh issue create"
+alias gil="gh issue list"
+alias gic="gh issue comment"
+alias gis="gh issue status"
+alias giv="gh issue view"
+alias gie="gh issue edit"
 
 ## Pull-requests
-alias gpr="hub pr"
-alias gpr.="hub pull-request -p"
+alias gpr="gh pr create"
+alias gprh="gh pr --help"
+alias gprl="gh pr list"
 
 ################################################
 # FUNCTIONS
@@ -533,3 +542,15 @@ source $HOME/.shellscripts/new.sh
 
 ################################################
 # Everything below here has been echoed into the file and needs to be sorted.
+alias alg="alias | grep"
+alias grbc="git rebase --continue"
+alias gopr="gh pr checkout"
+export GIT_EDITOR="nvim"
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias lpthw="cd ~/Documents/code/python/lpthw"
+alias gbm="git branch -m"
+alias 36="cd ~/Documents/code/web/36dot22"
+alias gat="git add -u"
+alias bos="cd ~/Documents/code/_reference/thebookofshaders"
+alias hhr="npx hardhat run"

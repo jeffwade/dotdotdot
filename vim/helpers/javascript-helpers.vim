@@ -2,6 +2,9 @@
 
 inoreabbrev <buffer> cl console.log( );<esc>2hi
 
+inoreabbrev <buffer> im import imTemp from 'imTemp';<esc>^/imTemp<cr>cw
+inoreabbrev <buffer> ex export default;<esc>i
+
 " Operators
 " in variable assignment
 onoremap <buffer> i; :<c-u>execute "normal! /;\r:nohlsearch\rT=vt;"<cr><space>
@@ -40,18 +43,8 @@ inoreabbrev <buffer> i? ternaryCondition ? ternaryIf : ternaryElse<esc>7b/ternar
 inoreabbrev <buffer> iff ternaryCondition ? ternaryIf : ternaryElse;<esc>7b/ternary<cr>cw
 
 " BLOCKS
-inoremap <buffer> ( ()<esc>i
-inoremap <buffer> { {}<esc>i
-inoremap <buffer> [ []<esc>i
-inoremap <buffer> ; <esc><s-a>;
-
-" Quotes
-inoremap <buffer> ' ''<esc>i
-inoremap <buffer> " ""<esc>i
-inoremap <buffer> ` ``<esc>i
-" Assignment
-" inoremap <buffer> = = ;<esc>i
-" Comparisons
+inoremap <buffer> ;; <esc>:execute "normal! mqA;\e`q"<cr>a
+inoremap <buffer> ,, <esc>:execute "normal! mqA,\e`q"<cr>a
 
 " CLASSES
 inoreabbrev <buffer> cclass classclassName {<cr>classBody<cr>}<esc>2k/class<cr>cw
@@ -76,10 +69,10 @@ inoreabbrev <buffer> nnew new objName(objArgs)<esc>2B/obj<cr>:noh<cr>cw<bs>
 inoreabbrev <buffer> jo var objName = {<cr>objKey: objVal,<cr>};<esc>0kk^/obj<cr>:noh<cr>cw
 
 " Key-value pairs
-inoreabbrev <buffer> kv propKey: propValue,<esc>18h/prop<cr>:noh<cr>Ncw<bs><space>
+inoreabbrev <buffer> kv propKey: propValue,<esc>0/prop<cr>:noh<cr>cw
 
 " JSON values
-inoreabbrev <buffer> jv propKey: propValue,<esc>^/prop<cr>:noh<cr>Ncw<bs><space>
+inoreabbrev <buffer> jv "propKey": "propValue",<esc>23h/prop<cr>:noh<cr>cw
 
 "JSON method
 inoreabbrev <buffer> jm methodKey: function(methodArgs) {<cr>methodBody<cr>},<esc>0kk/method<cr>:noh<cr>cw<bs><space>
@@ -90,9 +83,13 @@ inoreabbrev <buffer> mej methodKey: function(methodArgs) {<cr>methodBody<cr>},<e
 inoreabbrev <buffer> fn function functionName(functionArgs) {<cr>functionBody<cr>}<esc>0kk^/function<cr>:noh<cr>cw<bs>
 inoreabbrev <buffer> fun function functionName(functionArgs) {<cr>functionBody<cr>}<esc>0kk^/function<cr>:noh<cr>cw<bs>
 
+" arrow functions
+inoreabbrev <buffer> afn () => {AFN}<esc>F(/AFN<cr>cw
+inoreabbrev <buffer> caf constCAF = (CAF) => {CAF};<esc>^/CAF<cr>cw
+
 " anonymous functions
-inoreabbrev <buffer> afn function(functionArgs) {<cr>functionBody<cr>};<esc>0kk^/function<cr>:noh<cr>cw
-inoreabbrev <buffer> afun function(functionArgs) {<cr>functionBody<cr>};<esc>0kk^/function<cr>:noh<cr>cw
+inoreabbrev <buffer> anfn function(functionArgs) {<cr>functionBody<cr>};<esc>0kk^/function<cr>:noh<cr>cw
+inoreabbrev <buffer> anfun function(functionArgs) {<cr>functionBody<cr>};<esc>0kk^/function<cr>:noh<cr>cw
 
 " immedieately invoked functional expressions
 inoreabbrev <buffer> imfn (function(functionArgs) {<cr>functionBody<cr>})(functionArgs);<esc>0kk^/function<cr>n:noh<cr>cw
@@ -104,4 +101,4 @@ inoreabbrev <buffer> re return;<esc>$i
 " p5 initialization
 inoremap <buffer> p5in function setup() {<cr>createCanvas(windowWidth, windowHeight);<cr>background(240);<cr>}<cr><cr>function draw() {<cr>// Whatcha gonna do?<cr><bs><bs><bs>}<esc>gg
 
-
+inoremap <buffer> push push();<cr>pop();<esc>O
