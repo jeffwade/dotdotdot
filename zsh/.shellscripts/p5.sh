@@ -57,7 +57,7 @@ function p5 () {
               mkdir -p "$PROJECT_PATH"
               echo "Copying starter files..."
               cd "$PROJECT_PATH"
-              cp -nR "$P5_SKETCHBOOK/starter/project_files/" "$PROJECT_PATH"
+              cp -nR "$P5_SKETCHBOOK/p5-starter/project_files/" "$PROJECT_PATH"
 
               # ask if you want to initialize a git repo
               read -q "INIT_GIT?Do you want to initialize a git repo for $PROJECT_NAME? (y/n):"
