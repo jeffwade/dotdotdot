@@ -11,8 +11,6 @@ export GIT_EDITOR="nvim"
 # activate jenv (java environment manager)
 # export PATH="$HOME/.jenv/bin:$PATH"
 # eval "$(jenv init -)"
-## get my own custom scripts
-# export PATH="$HOME/.shellscripts:$PATH"
 
 #########################################################################
 # ALIASES
@@ -27,6 +25,7 @@ alias rc.=". ~/.zshrc" #source dotfile
 
 # Simplify navigation
 source ~/.nav
+alias rn="v ~/.nav"
 
 # Toggle hidden files in Finder
 alias show="defaults write com.apple.finder AppleShowAllFiles YES && sudo killall Finder"
@@ -88,7 +87,9 @@ alias vs="nvim -S"
 alias processing="processing-java"
 alias p3.="runp3"
 alias py3.="runpy3"
+
 # p5.js
+source "$P5_SKETCHBOOK/p5-starter/p5.sh"
 alias pdev="nodemon app.js"
 
 # Use the right Python installer
@@ -194,7 +195,7 @@ mech () {
 
 # Use github as default.
 # Escape \lab or \git if you need it for something specific
-# alias git="hub"
+alias git="hub"
 # alias hub="lab"
 
 #edit .gitignore
@@ -205,10 +206,13 @@ alias get="git clone"
 
 # checking status and history
 alias gs="git status"
-# git log long
-alias gll="git log"
+
 # limit git log
 alias gl="git log --oneline"
+# search git log
+alias glg="git log --oneline | grep"
+# git log long
+alias gll="git log"
 # limit to past N commits
 alias gl3="git log --oneline -3"
 alias gl5="git log --oneline -5"
@@ -216,6 +220,7 @@ alias gl10="git log --oneline -10"
 
 # staging changes
 alias ga="git add"
+alias gat="git add -u" # only add already tracked files
 alias ga.="git add ." # add the current directory (usually the whole project)
 alias ga!="git add -A" # add All changes
 alias gA="git add -A" # add All changes
@@ -258,10 +263,12 @@ alias go="git checkout" # go to branch
 alias gom="git checkout main" # go to main branch
 alias gos="git checkout source" # go to source branch
 alias gob="git checkout -b" #create new local branch and check it out
+alias gbm="git branch -m" #git branch move
 
 # rebasing
 alias grb="git rebase"
 alias grbi="git rebase -i"
+alias grbc="git rebase --continue"
 
 # merges
 alias gm="git merge"
@@ -269,7 +276,8 @@ alias gmt="git mergetool"
 alias gx="git diff" #git "e_x_amine/compare"
 
 # GITHUB COMMANDS
-# alias gh="gh browse" #git hub
+alias gh="hub"
+alias ghb="gh browse" #git hub
 ## Issues
 alias gi="gh issue create"
 alias gil="gh issue list"
@@ -282,6 +290,7 @@ alias gie="gh issue edit"
 alias gpr="gh pr create"
 alias gprh="gh pr --help"
 alias gprl="gh pr list"
+alias gopr="gh pr checkout"
 
 ################################################
 # FUNCTIONS

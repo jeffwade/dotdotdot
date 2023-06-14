@@ -1,4 +1,4 @@
-" 'basics ------------------------------------{{{
+j" 'basics ------------------------------------{{{
 
 " change leader from \ to ,
 let mapleader =","
@@ -200,19 +200,6 @@ Plug 'tpope/vim-surround'
 " ys = you surround (for use with movements)
 " in insert mode, use <c-s> and <c-S>
 " to create the surrounds and put the cursor inside
-
-" " auto insert in close brackets
-" imap { cs{
-" imap } cs}
-" imap ( cs(
-" imap ) cs)
-" imap [ cs[
-" imap ] cs]
-" imap " cs"
-" imap ' cs'
-" imap ` cs`
-" imap < cs<
-" imap > cs>
 
 " Install prettier
 Plug 'prettier/vim-prettier', { 'do': 'node install' }

@@ -1,4 +1,10 @@
+#!/bin/sh
+
 export DOCS="$HOME/non-backup"
+export CODE="$DOCS/code"
+export P5_SKETCHBOOK="$CODE/p5sketches"
+export DOT36="$CODE/web/36dot"
+
 alias jk="cd -"
 
 # common folders
@@ -26,9 +32,11 @@ alias jw="cd $DOCS/code/web/jeffdoes"
 alias jw.="cd $DOCS/code/web/jeffdoes/src && nvim ."
 
 # Processing / P5
-alias 36="cd $DOCS/code/web/36dot"
-# alias p3="cd $DOCS/code/processing"
-# alias meditate="cd $DOCS/code/processing/meditationcode"
+alias p5s="cd $P5_SKETCHBOOK"
+
+# Web
+alias web="cd $CODE/web"
+alias 36="cd $CODE/web/36dot"
 
 # Raspberry Pi
 alias sshpi="ssh pi@192.168.1.140"
