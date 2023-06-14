@@ -2,7 +2,8 @@
 # ENVIRONMENT
 ########################################################################
 # spaceship theme
-source "$HOME/.dotfiles/zsh/spaceship/spaceship.zsh"
+# install: 'git clone --depth=1 https://github.com/spaceship-prompt/spaceship-prompt.git "$HOME/.zsh/spaceship"'
+source "$HOME/.zsh/spaceship/spaceship.zsh"
 
 # PATH
 export PATH="/usr/local/sbin:$PATH"
@@ -36,7 +37,7 @@ alias hidedesk="defaults write com.apple.finder CreateDesktop -bool false && kil
 alias showdesk="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
 # Copy the current path to the system clipboard
-alias cwd="echo -n "$PWD" | pbcopy"
+alias cwd="pbcopy < pwd"
 
 # Clear the clipboard
 alias cx="echo -n | pbcopy"
@@ -52,6 +53,10 @@ alias f.="find . -name"
 # Make grep more user friendly by highlighting matches
 # and exclude grepping through .git folders
 alias grep="grep --color=auto --exclude-dir=\.git"
+
+# search aliases and what they mean
+alias alg="alias | grep"
+alias wh="which"
 
 # Make some possibly destructive commands more interactive.
 alias rmi="rm -iv"
@@ -90,31 +95,26 @@ alias pdev="nodemon app.js"
 alias pip="pip3"
 
 # Opening GUI apps
-## Start Spotify without ads
-alias music="open -a mutespotifyads"
-alias respot.="brew cask reinstall spotify && nvim ~/Library/Application\ Support/Spotify/Users/jeffwade-user/ad-state-storage.bnk"
-alias cleanspot="nvim ~/Library/Application\ Support/Spotify/Users/jeffwade-user/ad-state-storage.bnk"
 
-## open current directory
+## open finder at current directory
 alias finder="open ."
 
 ## open browsers
-alias chrome="open -a google\ chrome"
+alias brave="open -a brave\ browser"
+alias b="brave"
 alias firefox="open -a firefox"
-alias ff="open -a firefox"
-alias browse="open -a firefox"
+alias ff="firefox"
+alias browse="brave"
 
 ## work/team tools
 alias slack="open -a slack"
 alias notion="open -a notion"
 alias notes="open -a notion"
-alias harvest="open -a harvest"
 alias messages="open -a messages"
 
 ## start design tools
 alias figma="open -a figma"
-# alias sketch="open -a sketch"
-alias framer="open -a framer\ x"
+alias miro="open -a miro"
 
 ## 3d tools
 alias unity="open -a unity\ hub"
@@ -124,6 +124,9 @@ alias blender="open -a blender"
 alias quicktime="open -a quicktime"
 alias handbrake="open -a handbrake"
 alias loom="open -a loom"
+
+## Start Spotify without ads
+alias music="open -a mutespotifyads"
 
 # Start a simple HTTP server
 alias server="python -m SimpleHTTPServer 8000"
