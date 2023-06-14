@@ -124,6 +124,13 @@ set laststatus=2
 
 " 'plugins ----------------------------{{{
 
+" Install vim-plug if not already installed
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " specify a directory for plugins
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -142,18 +149,22 @@ augroup END
 " install code completion engine: coc (conqueror of completion) make your vim/neovim as smart as vscode
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 " use tab for trigger completion with characters ahead and navigate.
-" use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <tab>
-      \ pumvisible() ? "\<c-n>" :
-      \ <sid>check_back_space() ? "\<tab>" :
-      \ coc#refresh()
-inoremap <expr><s-tab> pumvisible() ? "\<c-p>" : "\<c-h>"
-"
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
 
+  inoremap <silent><expr> <TAB>
+    \ coc#pum#visible() ? coc#_select_confirm() :
+    \ coc#expandableOrJumpable() ?
+    \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ coc#refresh()
+
+  function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+  endfunction
+
+  let g:coc_snippet_next = '<tab>'
+
+" plugged
 " Check syntax in Vim asynchronously and fix files, (linting)
 Plug 'dense-analysis/ale'
 let g:ale_fixers = {
@@ -527,14 +538,6 @@ augroup END
 " git helpers ----------------------- {{{
 cnoreabbrev gs ! git status
 " }}} END git helpers
-
-" PERSONAL helpers -----------------------------{{{
-augroup personal_helpers
-  autocmd!
-  autocmd BufRead * :source ~/.vim/helpers/personal.vim
-augroup END
-" END personal }}}
-
 
 " END helpers }}}
 
