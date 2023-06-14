@@ -50,7 +50,7 @@ function p5 () {
 
           else
             # if not, create a new directory for the project
-            read -q "CRATEPROJ?There is no project named \"$PROJECT_NAME\" in your p5 sketchbook ($P5_SKETCHBOOK).\nWould you like to create one now? (y/n)"
+            read -q "CRATEPROJ?There is no project named \"$PROJECT_NAME\" in your p5 sketchbook ($P5_SKETCHBOOK).Create it now? (y/n)"
             case $CRATEPROJ in
               y|Y)
               echo "\nCreating $PROJECT_NAME..."
