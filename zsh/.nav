@@ -1,0 +1,38 @@
+export DOCS="$HOME/non-backup"
+alias jk="cd -"
+
+# common folders
+alias apps="cd /Applications"
+alias docs="cd $DOCS"
+alias desk="cd ~/Desktop"
+alias down="cd ~/Downloads"
+alias downloads="cd ~/Downloads"
+
+alias code="cd $DOCS/code && ls" 
+
+# Learning
+## REFERENCE
+# alias coderef="cd $DOCS/code/_reference"
+# alias data="cd $DOCS/code/_reference/my-data"
+# alias gitref="cd $DOCS/code/_reference/progit/ && nvim -S Session.vim"
+# alias lvs="cd $DOCS/code/vim/learnvimscriptthehardway/chapters && nvim -S Session.vim"
+# alias gats="cd $DOCS/code/web/gatsby-tutorial"
+# alias p3inspo="cd $DOCS/code/processing/_inspiration"
+alias lpthw="cd $DOCS/code/python/lpthw"
+alias bos="cd $DOCS/code/_reference/thebookofshaders"
+
+# My website [jeffdo.es](https://jeffdo.es)
+alias jw="cd $DOCS/code/web/jeffdoes"
+alias jw.="cd $DOCS/code/web/jeffdoes/src && nvim ."
+
+# Processing / P5
+alias 36="cd $DOCS/code/web/36dot"
+# alias p3="cd $DOCS/code/processing"
+# alias meditate="cd $DOCS/code/processing/meditationcode"
+
+# Raspberry Pi
+alias sshpi="ssh pi@192.168.1.140"
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."

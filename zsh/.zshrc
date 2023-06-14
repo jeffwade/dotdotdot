@@ -25,15 +25,7 @@ alias vrc="vim ~/.vimrc"
 alias rc.=". ~/.zshrc" #source dotfile
 
 # Simplify navigation
-alias jk="cd -"
-alias apps="cd /Applications"
-alias docs="cd ~/Documents"
-alias desk="cd ~/Desktop"
-alias box="cd ~/Box/ActiveProjects"
-alias down="cd ~/Downloads"
-alias downloads="cd ~/Downloads"
-alias code="cd ~/Documents/code" 
-alias web="cd ~/Documents/code/web"
+source ~/.nav
 
 # Toggle hidden files in Finder
 alias show="defaults write com.apple.finder AppleShowAllFiles YES && sudo killall Finder"
