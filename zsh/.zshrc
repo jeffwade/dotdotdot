@@ -129,7 +129,7 @@ alias loom="open -a loom"
 alias music="open -a mutespotifyads"
 
 # Start a simple HTTP server
-alias server="python -m SimpleHTTPServer 8000"
+alias serve="python3 -m http.server 8000"
 
 # Echo my IP address
 alias myip="curl http://ipecho.net/plain; echo"
@@ -204,9 +204,11 @@ alias meditate="cd ~/Documents/code/processing/meditationcode"
 # Web dev, local testing
 alias ns="nodemon"
 alias loc='ff http://localhost:3000'
-
-# Raspberry Pi
-alias sshpi="ssh pi@192.168.1.140"
+alias gdev="gatsby develop"
+alias nbuild="npm run build"
+alias ndeploy="npm run deploy"
+alias ndev="npm run dev"
+alias hhr="npx hardhat run"
 
 # Mechanic
 mech () {
