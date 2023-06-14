@@ -1,87 +1,21 @@
-# NAVIGATING THIS FILE (vim markers)
-# 'n --> NAVIGATION (here)
-# 'e --> ENVIRONMENT and PATH
-# 'a --> ALIASES
-#   'p --> PROJECTS
-#   'g --> GIT COMMANDS
-# 'f --> FUNCTIONS
-#   's --> SOURCED FUNCTIONS
-
-# The following lines were added by compinstall
-
-zstyle ':completion:*' completer _expand _complete _ignored _approximate _prefix
-zstyle ':completion:*' format 'Completing %d'
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=** r:|=**'
-zstyle ':completion:*' menu select=10
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s of %1
-zstyle :compinstall filename '/Users/jeff/.zshrc'
-
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=5000
-SAVEHIST=2000
-setopt sharehistory appendhistory autocd beep
-# expire duplicates first
-setopt HIST_EXPIRE_DUPS_FIRST 
-# do not store duplications
-setopt HIST_IGNORE_DUPS
-#ignore duplicates when searching
-setopt HIST_FIND_NO_DUPS
-# removes blank lines from history
-setopt HIST_REDUCE_BLANKS
-
-bindkey -v
-# End of lines configured by zsh-newuser-install
-
-############################################ 
-############################################ 
-############################################ 
-# Beginning of lines added by user
-
-
-
-################################################
+########################################################################
 # ENVIRONMENT
-################################################
-# Customize prompt
-# %B (%b) --- Start (stop) boldface mode.
-# %U (%u) --- Start (stop) underline mode.
-# %S (%s) --- Start (stop) standout mode.
-# %F (%f) --- Start (stop) using a different foreground colour, if supported by the terminal. The colour may be specified two ways: either as a numeric argument, as normal, or by a sequence in braces following the %F, for example %F{red}. In the latter case the values allowed are as described for the fg zle_highlight attribute; Character Highlighting. This means that numeric colours are allowed in the second format also.
-# %K (%k) --- Start (stop) using a different bacKground colour. The syntax is identical to that for %F and %f.
-# source ~/.git-prompt.sh
-# setopt PROMPT_SUBST ; PS1='[%c%B$(__git_ps1 " (%s)")%b] %# '
-# precmd () { __git_ps1 "[%B%c%b]" " %# " " (%s)" }
-# export GIT_PS1_SHOWCOLORHINTS=true
-# export GIT_PS1_SHOWDIRTYSTATE=true
-# export GIT_PS1_SHOWSTASHSTATE=true
-# export GIT_PS1_SHOWUNTRACKEDFILES=true
-# export GIT_PS1_SHOWUPSTREAM="verbose name"
-export P5_SKETCHBOOK="/Users/jeff/Documents/code/p5js"
-export SCRIPTS_DIR="/Users/jeff/.shellscripts"
-
+########################################################################
 # spaceship theme
-autoload -U promptinit; promptinit
-prompt spaceship
+source "$HOME/.dotfiles/zsh/spaceship/spaceship.zsh"
 
-#######
 # PATH
-#######
 export PATH="/usr/local/sbin:$PATH"
+export GIT_EDITOR="nvim"
 # activate jenv (java environment manager)
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-# get my own custom scripts
+# export PATH="$HOME/.jenv/bin:$PATH"
+# eval "$(jenv init -)"
+## get my own custom scripts
 # export PATH="$HOME/.shellscripts:$PATH"
 
-################################################
+#########################################################################
 # ALIASES
-################################################
+#########################################################################
 
 # aliases for editing and intializing dotfiles
 alias dot="cd ~/.dotfiles/"
