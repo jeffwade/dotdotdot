@@ -144,62 +144,13 @@ alias topm='top -o mem'
 # Recursively delete `.DS_Store` files
 alias cleands="find . -type f -name '*.DS_Store' -ls -delete"
 
-# Clean out the Box cache
-alias cleanbox="rm! /Users/jeff/Library/Application\ Support/Box/Box/cache/*"
-alias unbox="cleanbox"
-
-# Play snake
-alias snake="python ~/Documents/games/snake.py"
-
 ###########
 # Projects
 ###########
 
-# Learning
-## REFERENCE
-alias coderef="cd /Users/jeff/Documents/code/_reference"
-alias data="cd ~/Documents/code/_reference/my-data"
-alias gitref="cd /Users/jeff/Documents/code/_reference/progit/ && nvim -S Session.vim"
-## CURRENT
-alias lvs="cd ~/Documents/code/vim/learnvimscriptthehardway/chapters && nvim -S Session.vim"
-alias gats="cd /Users/jeff/Documents/code/web/gatsby-tutorial"
-## PAST
-alias js.="cd ~/Documents/code/web/training/lynda_js && nvim ."
-alias html="cd ~/Documents/code/web/training/lynda_html/site"
-alias css="cd ~/Documents/code/web/training/lynda_css/css-portfolio"
-
-# Reading
-alias book="cd ~/Documents/ebooks/NarrativeFrederickDouglass/ && nvim -S Session.vim"
-
-# Play ops
-alias playops="cd ~/Documents/personal/playops"
-
-# My website [jeffdo.es](https://jeffdo.es)
-alias jw="cd /Users/jeff/Documents/code/web/personal/jeffdoes"
-alias jw.="cd /Users/jeff/Documents/code/web/personal/jeffdoes/src && nvim ."
-alias deploy="npm run deploy"
-alias gdev="gatsby develop"
-alias ndev="npm run dev"
-
-# Fam
-alias akw="cd /Users/jeff/Documents/code/processing/akw"
-
-# Bridger website
-alias bw="cd /Users/jeff/Documents/code/web/bridger.work"
-alias bw.="cd /Users/jeff/Documents/code/web/bridger.work && nvim ."
-
-# developing Sketch plugins
-alias sketchplugins="cd /Users/jeff/Library/Application\ Support/com.bohemiancoding.sketch3/Plugins/"
-alias lseek="cd ~/Documents/code/sketchplugins/layer-seeker"
-
 # keeping a journal, maybe
-alias hoy="md ~/Documents/personal/hoy/entries/`date '+%Y'`/`date '+%m'` && vim hoy-`date '+%Y%m%d-%a'`.md"
-alias ayer="cd ~/Documents/personal/hoy && vim hoy-`date -v-1d '+%Y%m%d-%a'`"
-
-# Processing
-alias p3="cd ~/Documents/code/processing"
-alias p3inspo="cd ~/Documents/code/processing/_inspiration"
-alias meditate="cd ~/Documents/code/processing/meditationcode"
+alias hoy="md $DOCS/personal/hoy/entries/`date '+%Y'`/`date '+%m'` && vim hoy-`date '+%Y%m%d-%a'`.md"
+alias ayer="cd $DOCS/personal/hoy && vim hoy-`date -v-1d '+%Y%m%d-%a'`"
 
 # Web dev, local testing
 alias ns="nodemon"
@@ -348,9 +299,9 @@ makeJournal () {
   # Add all entries to journal
   for i
   do
-    echo "------------\n# " $i "\n">> ~/Documents/personal/hoy/journal.md
-    cat $i >> ~/Documents/personal/hoy/journal.md
-    echo "\n\n" >> ~/Documents/personal/hoy/journal.md
+    echo "------------\n# " $i "\n">> ~/docs/personal/hoy/journal.md
+    cat $i >> ~/docs/personal/hoy/journal.md
+    echo "\n\n" >> ~/docs/personal/hoy/journal.md
   done
 }
 
@@ -358,9 +309,9 @@ toJournal () {
   # Append entries to journal
   for i
   do
-    echo "------------\n# " $i "\n">> ~/Documents/personal/hoy/journal.md
-    cat $i >> ~/Documents/personal/hoy/journal.md
-    echo "\n\n" >> ~/Documents/personal/hoy/journal.md
+    echo "------------\n# " $i "\n">> ~/docs/personal/hoy/journal.md
+    cat $i >> ~/docs/personal/hoy/journal.md
+    echo "\n\n" >> ~/docs/personal/hoy/journal.md
     # mv $i entries/`date '+%Y'`/`date '+%m'`
   done
 }
@@ -417,14 +368,6 @@ ungit () {
   esac
 }
 
-runp3 () {
-  processing-java --sketch=$(pwd) --run
-}
-
-# runpy3() {
-#     java -jar processing-py.jar $1.py
-# }
-
 function extract {
   if [ -z "$1" ]; then
     # display usage if no parameters given
@@ -461,27 +404,5 @@ function extract {
   fi
 }
 
-#########################
-# SOURCED FUNCTIONS
-#########################
-# These go after everything else because I know there are dependency issues
-# script for creating new p5 projects
-source $HOME/.shellscripts/p5.sh
-# script for creating new projects
-# NEEDS WORK
-source $HOME/.shellscripts/new.sh
-
 ################################################
 # Everything below here has been echoed into the file and needs to be sorted.
-alias alg="alias | grep"
-alias grbc="git rebase --continue"
-alias gopr="gh pr checkout"
-export GIT_EDITOR="nvim"
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias lpthw="cd ~/Documents/code/python/lpthw"
-alias gbm="git branch -m"
-alias 36="cd ~/Documents/code/web/36dot22"
-alias gat="git add -u"
-alias bos="cd ~/Documents/code/_reference/thebookofshaders"
-alias hhr="npx hardhat run"
