@@ -11,8 +11,13 @@
 	tool = vimdiff
 [merge]
 	tool = vimdiff
-[init]
-	defaultBranch = main
+
 [user]
 	name = Jeff Wade
 	email = jeffwade@users.noreply.github.com
+[init]
+	defaultBranch = main
+[credential]
+	helper = /usr/local/share/gcm-core/git-credential-manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true
