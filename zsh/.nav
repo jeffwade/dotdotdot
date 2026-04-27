@@ -1,8 +1,9 @@
 #!/bin/sh
 
-export DOCS="$HOME/non-backup"
+export DOCS="$HOME/private"
 export CODE="$DOCS/code"
-export P5_SKETCHBOOK="$CODE/p5sketches"
+export P5_SKETCHBOOK="$CODE/sketchbook"
+export CLOD_PROJECTS="$CODE/claude"
 export DOT36="$CODE/web/36dot"
 
 alias jk="cd -"
@@ -14,7 +15,10 @@ alias desk="cd ~/Desktop"
 alias down="cd ~/Downloads"
 alias downloads="cd ~/Downloads"
 
-alias code="cd $DOCS/code && ls" 
+alias code="cd $DOCS/code && la" 
+
+# source work folders from private file
+source ~/.worknav
 
 # Learning
 ## REFERENCE

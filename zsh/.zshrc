@@ -5,12 +5,23 @@
 # install: 'git clone --depth=1 https://github.com/spaceship-prompt/spaceship-prompt.git "$HOME/.zsh/spaceship"'
 source "$HOME/.zsh/spaceship/spaceship.zsh"
 
+# source certificates
+source "$HOME/.certs"
+
 # PATH
 export PATH="/usr/local/sbin:$PATH"
-export GIT_EDITOR="nvim"
+export PATH="$PATH:/usr/bin"
+export PATH="$PATH:/Users/62635/.local/bin"
 # activate jenv (java environment manager)
 # export PATH="$HOME/.jenv/bin:$PATH"
 # eval "$(jenv init -)"
+
+# EDITOR
+# export EDITOR="cursor --wait" #cursor
+# export EDITOR="code" #vscode
+export EDITOR="nvim" #neovim
+
+
 
 #########################################################################
 # ALIASES
@@ -55,6 +66,7 @@ alias grep="grep --color=auto --exclude-dir=\.git"
 
 # search aliases and what they mean
 alias alg="alias | grep"
+alias alw="zsh -ixc : 2>&1 | grep ... | grep"
 alias wh="which"
 
 # Make some possibly destructive commands more interactive.
@@ -91,6 +103,12 @@ alias py3.="runpy3"
 # p5.js
 source "$P5_SKETCHBOOK/p5-starter/p5.sh"
 alias pdev="nodemon app.js"
+
+# Claude code
+source "$CLOD_PROJECTS/hopper/clod.sh"
+alias cl="claude"
+alias clr="claude --resume"
+alias cln="claude --name"
 
 # Use the right Python installer
 alias pip="pip3"
@@ -415,3 +433,4 @@ function extract {
 
 ################################################
 # Everything below here has been echoed into the file and needs to be sorted.
+
