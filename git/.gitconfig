@@ -1,3 +1,6 @@
+[user]
+	name = Jeff Wade
+
 [includeIf "gitdir:github/"]
   path = ~/.gitconfig-hub
 [includeIf "gitdir:personal/"]
@@ -12,12 +15,10 @@
 [merge]
 	tool = vimdiff
 
-[user]
-	name = Jeff Wade
-	email = jeffwade@users.noreply.github.com
 [init]
 	defaultBranch = main
 [credential]
+	helper = 
 	helper = /usr/local/share/gcm-core/git-credential-manager
 [credential "https://dev.azure.com"]
 	useHttpPath = true
