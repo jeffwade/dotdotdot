@@ -2,7 +2,7 @@
 
 export DOCS="$HOME/private"
 export CODE="$DOCS/code"
-export P5_SKETCHBOOK="$CODE/sketchbook"
+export P5_SKETCHBOOK="$CODE/p5"
 export CLOD_PROJECTS="$CODE/claude"
 export DOT36="$CODE/web/36dot"
 
@@ -16,9 +16,12 @@ alias down="cd ~/Downloads"
 alias downloads="cd ~/Downloads"
 
 alias code="cd $DOCS/code && la" 
+alias scripts="cd $CODE/scripts && la"
 
 # source work folders from private file
+
 source ~/.worknav
+alias rwn="v ~/.worknav"
 
 # Learning
 ## REFERENCE
