@@ -167,8 +167,7 @@ augroup END
 
 
 " install code completion engine: coc (conqueror of completion) make your vim/neovim as smart as vscode
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
-" use tab for trigger completion with characters ahead and navigate.
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   inoremap <silent><expr> <TAB>
     \ coc#pum#visible() ? coc#_select_confirm() :
