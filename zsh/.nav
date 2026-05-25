@@ -3,37 +3,39 @@
 export DOCS="$HOME/Documents"
 export CODE="$DOCS/code"
 export WEB="$CODE/web"
-export P5_SKETCHBOOK="$CODE/sketches"
+export P5_SKETCHBOOK="$CODE/p5"
 export CLOD_PROJECTS="$CODE/claude"
 export DOT36="$WEB/36dot"
 export SCRIPTS="~/.scripts"
 export NOTES="$DOCS/note"
 export JOURNAL="$DOCS/hoy/entries"
 
+# source work folders from local file
+source ~/.worknav
+alias rwn="v ~/.worknav"
+
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias jk="cd -"
 
-# common folders
+# system folders
 alias apps="cd /Applications"
 alias docs="cd $DOCS"
-alias desk="cd ~/Desktop"
+alias desk="cd $HOME/Desktop"
+alias down="cd $HOME/Downloads"
+alias downloads="cd $HOME/Downloads"
+
+# projects
 alias code="cd $CODE && la" 
+alias scripts="cd $CODE/scripts && la"
 alias notes="cd $NOTES && la"
-alias down="cd ~/Downloads"
-alias downloads="cd ~/Downloads"
 
 # volumes
 alias blinky="cd /Volumes/Blinky"
 
 # Remote servers / SSH
 alias sshpi="ssh pi@192.168.1.140"
-alias quincy=""
-alias toripc=""
-
-# source work folders from private file
-source ~/.worknav
 
 # Learning
 ## REFERENCE
@@ -54,5 +56,5 @@ alias jw.="cd $DOCS/code/web/jeffdoes/src && nvim ."
 alias p5s="cd $P5_SKETCHBOOK"
 
 # Web
-alias web="cd $CODE/web"
-alias 36="cd $CODE/web/36dot"
+alias web="cd $WEB"
+alias dot36="cd $DOT36"

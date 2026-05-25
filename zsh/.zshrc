@@ -34,6 +34,12 @@ export EDITOR="nvim" #neovim
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
+# DO NOT TRACK
+export DO_NOT_TRACK=true
+export GH_TELEMETRY=false
+
+
+
 
 #########################################################################
 # ALIASES
@@ -117,6 +123,7 @@ source "$P5_SKETCHBOOK/starter/p5.sh"
 alias pdev="nodemon app.js"
 
 # Claude code
+source "$CODE/scripts/clod/clod.sh"
 alias cl="claude"
 alias clr="claude --resume"
 alias cln="claude --name"
