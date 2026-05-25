@@ -6,9 +6,18 @@
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 test -e "$HOME/.shellfishrc" && source "$HOME/.shellfishrc"
 
+# Create .zsh folder if it doesn't exist
+[ -d "$HOME/.zsh" ] || mkdir -p "$HOME/.zsh"
+
 # spaceship theme
-# install: 'git clone --depth=1 https://github.com/spaceship-prompt/spaceship-prompt.git "$HOME/.zsh/spaceship"'
-source "$HOME/.zsh/spaceship/spaceship.zsh"
+if [ -f "$HOME/.zsh/spaceship/spaceship.zsh" ]; then
+  echo "Sourcing spaceship prompt 🛸"
+  source "$HOME/.zsh/spaceship/spaceship.zsh"
+else
+  git clone --depth=1 https://github.com/spaceship-prompt/spaceship-prompt.git "$HOME/.zsh/spaceship"
+  echo "Sourcing spaceship prompt 🛸"
+  source "$HOME/.zsh/spaceship/spaceship.zsh"
+fi
 
 # source certificates
 source "$HOME/.certs"
@@ -119,11 +128,11 @@ alias p3.="runp3"
 alias py3.="runpy3"
 
 # p5.js
-source "$P5_SKETCHBOOK/starter/p5.sh"
+# source "$P5_SKETCHBOOK/starter/p5.sh"
 alias pdev="nodemon app.js"
 
 # Claude code
-source "$CODE/scripts/clod/clod.sh"
+# source "$CODE/scripts/clod/clod.sh"
 alias cl="claude"
 alias clr="claude --resume"
 alias cln="claude --name"
