@@ -1,6 +1,11 @@
 ########################################################################
 # ENVIRONMENT
 ########################################################################
+
+# shell integrations
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+test -e "$HOME/.shellfishrc" && source "$HOME/.shellfishrc"
+
 # spaceship theme
 # install: 'git clone --depth=1 https://github.com/spaceship-prompt/spaceship-prompt.git "$HOME/.zsh/spaceship"'
 source "$HOME/.zsh/spaceship/spaceship.zsh"
@@ -8,10 +13,15 @@ source "$HOME/.zsh/spaceship/spaceship.zsh"
 # source certificates
 source "$HOME/.certs"
 
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
 # PATH
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$PATH:/usr/bin"
-export PATH="$PATH:/Users/62635/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
+
 # activate jenv (java environment manager)
 # export PATH="$HOME/.jenv/bin:$PATH"
 # eval "$(jenv init -)"
@@ -21,6 +31,8 @@ export PATH="$PATH:/Users/62635/.local/bin"
 # export EDITOR="code" #vscode
 export EDITOR="nvim" #neovim
 
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 
 #########################################################################
@@ -433,4 +445,3 @@ function extract {
 
 ################################################
 # Everything below here has been echoed into the file and needs to be sorted.
-
