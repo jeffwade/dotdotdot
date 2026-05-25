@@ -22,6 +22,12 @@ export PATH="$PATH:/Users/62635/.local/bin"
 export EDITOR="nvim" #neovim
 
 
+# DO NOT TRACK
+export DO_NOT_TRACK=true
+export GH_TELEMETRY=false
+
+
+
 
 #########################################################################
 # ALIASES
@@ -105,7 +111,7 @@ source "$P5_SKETCHBOOK/p5-starter/p5.sh"
 alias pdev="nodemon app.js"
 
 # Claude code
-source "$CLOD_PROJECTS/hopper/clod.sh"
+source "$HOME/private/code/scripts/clod/clod.sh"
 alias cl="claude"
 alias clr="claude --resume"
 alias cln="claude --name"
