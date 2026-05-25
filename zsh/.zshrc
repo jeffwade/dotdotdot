@@ -124,6 +124,14 @@ alias cln="claude --name"
 # Use the right Python installer
 alias pip="pip3"
 
+
+# Draw in the terminal
+# npm install --global @termdraw/app 
+alias draw="termdraw"
+alias td="termdraw"
+alias tdl="termdraw --load"
+
+
 # Opening GUI apps
 
 ## open finder at current directory
