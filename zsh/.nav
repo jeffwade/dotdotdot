@@ -1,21 +1,36 @@
 #!/bin/sh
 
-export DOCS="$HOME/private"
+export DOCS="$HOME/Documents"
 export CODE="$DOCS/code"
-export P5_SKETCHBOOK="$CODE/sketchbook"
+export WEB="$CODE/web"
+export P5_SKETCHBOOK="$CODE/sketches"
 export CLOD_PROJECTS="$CODE/claude"
-export DOT36="$CODE/web/36dot"
+export DOT36="$WEB/36dot"
+export SCRIPTS="~/.scripts"
+export NOTES="$DOCS/note"
+export JOURNAL="$DOCS/hoy/entries"
 
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
 alias jk="cd -"
 
 # common folders
 alias apps="cd /Applications"
 alias docs="cd $DOCS"
 alias desk="cd ~/Desktop"
+alias code="cd $CODE && la" 
+alias notes="cd $NOTES && la"
 alias down="cd ~/Downloads"
 alias downloads="cd ~/Downloads"
 
-alias code="cd $DOCS/code && la" 
+# volumes
+alias blinky="cd /Volumes/Blinky"
+
+# Remote servers / SSH
+alias sshpi="ssh pi@192.168.1.140"
+alias quincy=""
+alias toripc=""
 
 # source work folders from private file
 source ~/.worknav
@@ -41,10 +56,3 @@ alias p5s="cd $P5_SKETCHBOOK"
 # Web
 alias web="cd $CODE/web"
 alias 36="cd $CODE/web/36dot"
-
-# Raspberry Pi
-alias sshpi="ssh pi@192.168.1.140"
-
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
