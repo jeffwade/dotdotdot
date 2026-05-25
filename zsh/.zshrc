@@ -113,11 +113,10 @@ alias p3.="runp3"
 alias py3.="runpy3"
 
 # p5.js
-source "$P5_SKETCHBOOK/p5-starter/p5.sh"
+source "$P5_SKETCHBOOK/starter/p5.sh"
 alias pdev="nodemon app.js"
 
 # Claude code
-source "$CLOD_PROJECTS/hopper/clod.sh"
 alias cl="claude"
 alias clr="claude --resume"
 alias cln="claude --name"
