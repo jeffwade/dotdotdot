@@ -208,7 +208,7 @@ augroup END
 " install quick commenting
 Plug 'tpope/vim-commentary'
 " Commentary shortcut (toggle Comment on current line)
-noremap <silent> <leader><space> :Commentary \| echo "💬 ↔️  💭"<cr>
+noremap <silent> <leader><space> :Commentary \| echo "💬 ↔️ 💭"<cr>
 
 " install surround
 Plug 'tpope/vim-surround'
@@ -356,6 +356,8 @@ nnoremap <s-down> 2<c-w>-
 nnoremap <s-right> 5<c-w>>
 nnoremap <s-left> 5<c-w><
 
+" Undo / Redo
+nnoremap <s-u> <c-r>
 
 " TABS
 noremap <leader>tn :tabnew<cr>
@@ -397,11 +399,13 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 " move the current line _up or -down {count} lines
-nnoremap <silent> _  :<c-u>execute 'move -1-'. v:count1 \| echo "⬆️  Move on up."<cr>
-nnoremap <silent> -  :<c-u>execute 'move +'. v:count1 \| echo "⬇️  Move down, move down."<cr>
+nnoremap <silent> _  :<c-u>execute 'move -1-'. v:count1<cr>
+nnoremap <silent> -  :<c-u>execute 'move +'. v:count1<cr>
+
 " add blank line above '[' or below ']' cursor
-nnoremap <silent> [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[:echo "🛰  I just need some space."<cr>
-nnoremap <silent> ]<space>  :<c-u>put =repeat(nr2char(10), v:count1) \| echo "🛰  I just need some space."<cr>
+nnoremap <silent> [<space> :<c-u>call append(line(".")-1, repeat([""], v:count1)) \| echo "🛰️ I need some space"<cr>
+nnoremap <silent> ]<space> :<c-u>call append(line("."),   repeat([""], v:count1)) \| echo "🔭 I need some space"<cr>
+
 " open a new line at bottom of the file
 nnoremap <leader>G Go
 " Yank to the end of the line
@@ -555,7 +559,7 @@ cnoreabbrev gs ! git status
 " Change current word to uppercase
 inoremap <c-u> <esc>mqviwU`qa
 " Toggle case of current word
-nnoremap <s-u> mqviw~`q
+nnoremap <c-u> mqviw~`q
 " Toggle case of first letter in word
 nnoremap <leader><s-u> b~
 
