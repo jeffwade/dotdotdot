@@ -46,10 +46,11 @@ noremap <leader><s-q> :qa!<cr>
 set title
 
 " detect filetype for sytax highlighting, etc
-filetype on
+filetype plugin indent on
 syntax on
 
 " CURSORLINE OPTIONS
+set cursorline
 hi cursorline term=bold cterm=bold ctermbg=234
 
 " keep N lines around the cursor always visible
@@ -76,6 +77,8 @@ set hlsearch               " highlight search
 set incsearch              " incremental search
 set ignorecase             " ignore case in search
 set smartcase              " be smart on case matching
+set wrapscan               " searches wrap around EOF
+set report=0
 
 " LINE NUMBERS
 set relativenumber         " relative line numbers
@@ -105,6 +108,17 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+" Put all temporary files under the same directory.
+set backup
+set backupdir   =$HOME/.vim/files/backup/
+set backupext   =-vimbackup
+set backupskip  =
+set directory   =$HOME/.vim/files/swap//
+set updatecount =100
+set undofile
+set undodir     =$HOME/.vim/files/undo/
+set viminfo     ='100,n$HOME/.vim/files/info/viminfo
+
 " indentation
 set expandtab
 set shiftwidth=2
@@ -118,7 +132,13 @@ set shortmess+=c
 
 " always show the status line
 set laststatus=2
+set display=lastline
+set showmode
+set showcmd
 
+" Redraw settings
+set ttyfast
+set lazyredraw
 
 " END options }}}
 
@@ -357,6 +377,7 @@ vnoremap <s-l> $
 nnoremap <s-h> g^
 nnoremap <leader>g^ ^
 vnoremap <s-h> ^
+
 " in parentheses
 onoremap p i(
 " in angle brackets
@@ -390,6 +411,7 @@ nnoremap <s-y> y$
 " Moving in insert mode
 inoremap <c-h> <left>
 inoremap <c-l> <right>
+
 " add line above and enter insert mode (breaks undo sequence)
 inoremap <c-k> <c-g>u<c-o>O
 inoremap <c-j> <c-g>u<c-o>o
