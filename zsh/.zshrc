@@ -147,7 +147,6 @@ alias browse="brave"
 ## work/team tools
 alias slack="open -a slack"
 alias notion="open -a notion"
-alias notes="open -a notion"
 alias messages="open -a messages"
 
 ## start design tools
@@ -186,9 +185,14 @@ alias cleands="find . -type f -name '*.DS_Store' -ls -delete"
 # Projects
 ###########
 
+# taking notes
+alias note="cd $NOTES && v -c star note-`date '+%Y%m%d-%a-%hh%mm'`.md"
 # keeping a journal, maybe
-alias hoy="md $DOCS/personal/hoy/entries/`date '+%Y'`/`date '+%m'` && vim hoy-`date '+%Y%m%d-%a'`.md"
-alias ayer="cd $DOCS/personal/hoy && vim hoy-`date -v-1d '+%Y%m%d-%a'`"
+alias journal="cd $JOURNAL && vim ."
+alias jour="cd $JOURNAL/`date '+%Y'`/`date '+%m-%b'` && vim ."
+alias mois="cd $JOURNAL/`date '+%Y'` && vim ."
+alias hoy="md $JOURNAL/`date '+%Y'`/`date '+%m-%b'` && vim hoy-`date '+%Y%m%d-%a'`.md"
+alias ayer="md $JOURNAL/`date '+%Y'`/`date '+%m-%b'` && vim -c star hoy-`date -v-1d '+%Y%m%d-%a'`.md"
 
 # Web dev, local testing
 alias ns="nodemon"
