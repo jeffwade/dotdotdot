@@ -6,19 +6,6 @@
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 test -e "$HOME/.shellfishrc" && source "$HOME/.shellfishrc"
 
-# Create .zsh folder if it doesn't exist
-[ -d "$HOME/.zsh" ] || mkdir -p "$HOME/.zsh"
-
-# spaceship theme
-if [ -f "$HOME/.zsh/spaceship/spaceship.zsh" ]; then
-  echo "Sourcing spaceship prompt 🛸"
-  source "$HOME/.zsh/spaceship/spaceship.zsh"
-else
-  git clone --depth=1 https://github.com/spaceship-prompt/spaceship-prompt.git "$HOME/.zsh/spaceship"
-  echo "Sourcing spaceship prompt 🛸"
-  source "$HOME/.zsh/spaceship/spaceship.zsh"
-fi
-
 # source certificates
 source "$HOME/.certs"
 
