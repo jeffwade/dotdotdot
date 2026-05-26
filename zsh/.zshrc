@@ -81,15 +81,16 @@ alias hidedesk="defaults write com.apple.finder CreateDesktop -bool false && kil
 alias showdesk="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
 # Copy the current path to the system clipboard
-alias cwd="pbcopy < pwd"
+# alias cwd='pwd | tr -d "\n" | pbcopy'
+alias cwd='printf "%q\n" "$(pwd)" | tr -d "\n" | tee >(pbcopy)'
 
 # Clear the clipboard
 alias cx="echo -n | pbcopy"
 
 # Add some easy shortcuts for formatted directory listings and add a touch of color.
-alias ls="ls -F"
-alias la="ls -aF"
-alias ll="ls -laF"
+alias ls="ls -FG"
+alias la="ls -AFG@"
+alias ll="ls -laFG@"
 
 # Search the current directory
 alias f.="find . -name"
