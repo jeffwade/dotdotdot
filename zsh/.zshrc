@@ -43,6 +43,13 @@ export EDITOR="nvim" #neovim
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+alias sb="npm run storybook"
+export OBSERVABLE_TELEMETRY_DISABLE=true
+
 # DO NOT TRACK
 export DO_NOT_TRACK=true
 export GH_TELEMETRY=false
