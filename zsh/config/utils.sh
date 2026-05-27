@@ -4,6 +4,19 @@
 ################################################
 
 ###########
+# Dot files
+# aliases for editing and intializing dotfiles
+##############################################
+
+alias dot="cd $DOTFILES"        #open dotfiles directory
+alias dot.="vim $DOTFILES"      #edit dotfiles
+alias rc="vim ~/.zshrc"            #.zshrc
+alias vrc="vim ~/.vimrc"
+alias rc.=". ~/.zshrc" #source dotfile
+alias rn="v ~/.nav"
+
+
+###########
 # General
 ###########
 
@@ -17,17 +30,9 @@ alias vs="nvim -S"
 # Use the right Python installer
 alias pip="pip3"
 
-###########
-# Dot files
-# aliases for editing and intializing dotfiles
-##############################################
-
-alias dot="cd $DOTFILES"        #open dotfiles directory
-alias dot.="vim $DOTFILES"      #edit dotfiles
-alias rc="vim ~/.zshrc"            #.zshrc
-alias vrc="vim ~/.vimrc"
-alias rc.=". ~/.zshrc" #source dotfile
-alias rn="v ~/.nav"
+# brew simpler
+alias brewery="brew update && brew upgrade && brew cleanup"
+alias brewf=' echo "Removing old brewfile..." && rm $DOTFILES/brew/Brewfile && echo "Compiling new brewfile..." && brew bundle dump --file $DOTFILES/brew/Brewfile && echo "New brewfile at $DOTFILES/brew/Brewfile"'
 
 #################
 # Alias built-ins

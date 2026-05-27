@@ -7,8 +7,6 @@
 # CLIs
 ####################
 
-# brew simpler
-alias brewery="brew update && brew upgrade && brew cleanup"
 
 ####################
 # TUIs
