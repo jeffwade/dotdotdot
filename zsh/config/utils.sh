@@ -22,8 +22,6 @@ alias pip="pip3"
 # aliases for editing and intializing dotfiles
 ##############################################
 
-export DOTFILES="$HOME/.dotdotdot"
-
 alias dot="cd $DOTFILES"        #open dotfiles directory
 alias dot.="vim $DOTFILES"      #edit dotfiles
 alias rc="vim ~/.zshrc"            #.zshrc
