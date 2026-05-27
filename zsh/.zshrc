@@ -58,9 +58,6 @@ alias rm!="echo 'borrado!' && rm -rf" #just get rid of it
 # Better folder creation
 alias mkdir="mkdir -pv"
 
-# brew simpler
-alias brewery="brew update && brew upgrade && brew cleanup"
-
 # less time taken typing less 
 alias l="less"
 
@@ -87,48 +84,6 @@ alias cln="claude --name"
 
 # Use the right Python installer
 alias pip="pip3"
-
-
-# Draw in the terminal
-# npm install --global @termdraw/app 
-alias draw="termdraw"
-alias td="termdraw"
-alias tdl="termdraw --load"
-
-
-# Opening GUI apps
-
-## open finder at current directory
-alias finder="open ."
-
-## open browsers
-alias brave="open -a brave\ browser"
-alias b="brave"
-alias firefox="open -a firefox"
-alias ff="firefox"
-alias browse="brave"
-
-## work/team tools
-alias slack="open -a slack"
-alias notion="open -a notion"
-alias messages="open -a messages"
-
-## start design tools
-alias figma="open -a figma"
-alias miro="open -a miro"
-
-## 3d tools
-alias unity="open -a unity\ hub"
-alias blender="open -a blender"
-
-## start video tools
-alias quicktime="open -a quicktime"
-alias handbrake="open -a handbrake"
-alias loom="open -a loom"
-
-## Start Spotify without ads
-alias music="open -a mutespotifyads"
-
 # Start a simple HTTP server
 alias serve="python3 -m http.server 8000"
 
