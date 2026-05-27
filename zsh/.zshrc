@@ -1,5 +1,5 @@
 export DOTFILES="$HOME/.dotdotdot"
-export ZSHRC="$DOTFILES/config"
+export ZSHRC="$DOTFILES/zsh/config"
 
 source "$ZSHRC/init.sh"
 
