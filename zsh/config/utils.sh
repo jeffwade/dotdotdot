@@ -37,6 +37,7 @@ alias rn="v ~/.nav"
 alias ls="ls -F"
 alias la="ls -aF"
 alias ll="ls -laF"
+alias lag="ls -AF | grep"
 
 # Make some possibly destructive commands more interactive.
 alias rmi="rm -iv"
