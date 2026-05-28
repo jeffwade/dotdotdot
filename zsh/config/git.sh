@@ -85,7 +85,7 @@ alias gmt="git mergetool"
 alias gx="git diff" #git "e_x_amine/compare"
 
 # GITHUB COMMANDS
-alias gh="hub"
+# alias gh="hub"
 alias ghb="gh browse" #git hub
 ## Issues
 alias gi="gh issue create"

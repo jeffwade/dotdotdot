@@ -8,29 +8,28 @@
 
 # Load spaceship theme
 if [ -f "$HOME/.zsh/spaceship/spaceship.zsh" ]; then
-  echo "Sourcing spaceship prompt 🛸"
+  # echo "Sourcing spaceship prompt 🛸"
   source "$HOME/.zsh/spaceship/spaceship.zsh"
 else
   git clone --depth=1 https://github.com/spaceship-prompt/spaceship-prompt.git "$HOME/.zsh/spaceship"
-  echo "Sourcing spaceship prompt 🛸"
+  # echo "Sourcing spaceship prompt 🛸"
   source "$HOME/.zsh/spaceship/spaceship.zsh"
 fi
 
-########################################################################
+#############
 # ENVIRONMENT
-########################################################################
+#############
 
 # shell integrations
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 test -e "$HOME/.shellfishrc" && source "$HOME/.shellfishrc"
 
-# TODO: add function to source local files
-# source certificates
-source "$HOME/.certs"
-
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # PATH
 export PATH="/usr/local/sbin:$PATH"
@@ -45,9 +44,6 @@ export PATH="$PATH:$HOME/.local/bin"
 # export EDITOR="cursor --wait" #cursor
 # export EDITOR="code" #vscode
 export EDITOR="nvim" #neovim
-
-# bun completions
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # DO NOT TRACK
 export DO_NOT_TRACK=true

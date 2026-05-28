@@ -10,10 +10,6 @@ export SCRIPTS="~/.scripts"
 export NOTES="$DOCS/note"
 export JOURNAL="$DOCS/hoy/entries"
 
-# source work folders from local file
-source ~/.worknav
-alias rwn="v ~/.worknav"
-
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
