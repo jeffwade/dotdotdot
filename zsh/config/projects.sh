@@ -91,6 +91,17 @@ alias cl="claude"
 alias clr="claude --resume"
 alias cln="claude --name"
 
+# Ollama
+alias ol="ollama"
+alias ols="ollama serve"
+alias olr="ollama run"
+# Run specific models
+alias olq="ollama run qwen2.5:3b"
+alias olq7="ollama run qwen2.5:7b"
+alias olp="ollama run phi4-mini"
+alias olg="ollama run gemma3:4b"
+
+
 
 #########
 # Web dev
