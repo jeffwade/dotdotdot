@@ -18,6 +18,7 @@ alias jk="cd -"
 # system folders
 alias apps="cd /Applications"
 alias docs="cd $DOCS"
+alias dots="cd $DOTFILES"
 alias desk="cd $HOME/Desktop"
 alias down="cd $HOME/Downloads"
 alias downloads="cd $HOME/Downloads"

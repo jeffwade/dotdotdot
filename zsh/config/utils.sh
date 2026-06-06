@@ -8,12 +8,10 @@
 # aliases for editing and intializing dotfiles
 ##############################################
 
-alias dot="cd $DOTFILES"        #open dotfiles directory
-alias dot.="vim $DOTFILES"      #edit dotfiles
-alias rc="vim ~/.zshrc"            #.zshrc
+alias dot="cd $DOTFILES && vim . && jk"             #edit dotfiles
+alias rc="cd $DOTFILES/zsh/config && vim . && jk"    #.zshrc
 alias vrc="vim ~/.vimrc"
-alias rc.=". ~/.zshrc" #source dotfile
-alias rn="v ~/.nav"
+alias rc.=". ~/.zshrc"
 
 
 ###########
