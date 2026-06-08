@@ -37,6 +37,7 @@ alias gap="git add -p" # patch staging
 alias gre="git restore"
 alias gres="git restore --staged" # git unstage
 alias gus="git restore --staged" # git unstage
+alias gmv='git mv' # git move
 
 # commits
 alias gc="git commit -m" # always add a message inline
@@ -72,7 +73,7 @@ alias go="git checkout" # go to branch
 alias gom="git checkout main" # go to main branch
 alias gos="git checkout source" # go to source branch
 alias gob="git checkout -b" #create new local branch and check it out
-alias gbm="git branch -m" #git branch move
+alias gbmv="git branch -m" #git branch move
 
 # rebasing
 alias grb="git rebase"

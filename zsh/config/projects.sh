@@ -116,8 +116,9 @@ alias serve="python3 -m http.server 8000"
 # Web dev, local testing
 alias ns="nodemon"
 alias loc='ff http://localhost:3000'
-alias gdev="gatsby develop"
 alias nbuild="npm run build"
 alias ndeploy="npm run deploy"
 alias ndev="npm run dev"
+alias n.="npm install"
+alias nr="npm run"
 alias hhr="npx hardhat run"

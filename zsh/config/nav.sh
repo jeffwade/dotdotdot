@@ -46,8 +46,8 @@ alias lpthw="cd $DOCS/code/python/lpthw"
 alias bos="cd $DOCS/code/_reference/thebookofshaders"
 
 # My website [jeffdo.es](https://jeffdo.es)
-alias jw="cd $DOCS/code/web/jeffdoes"
-alias jw.="cd $DOCS/code/web/jeffdoes/src && nvim ."
+alias jw="cd $WEB/jw"
+alias jw.="cd $WEB/jw && nvim ."
 
 # Processing / P5
 alias p5s="cd $P5_SKETCHBOOK"
