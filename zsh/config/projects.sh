@@ -126,3 +126,6 @@ alias hhr="npx hardhat run"
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# Let old .NET tools (e.g. SignalR emulator) run on .NET 8
+export DOTNET_ROLL_FORWARD=LatestMajor
