@@ -30,7 +30,7 @@ alias pip="pip3"
 
 # brew simpler
 alias brewery="brew update && brew upgrade && brew cleanup"
-alias brewf=' echo "Removing old brewfile..." && rm $DOTFILES/brew/Brewfile && echo "Compiling new brewfile..." && brew bundle dump --file $DOTFILES/brew/Brewfile && echo "New brewfile at $DOTFILES/brew/Brewfile"'
+alias brewsky=' echo "Removing old brewfile..." && rm $DOTFILES/brew/Brewfile && echo "Compiling new brewfile..." && brew bundle dump --file $DOTFILES/brew/Brewfile && echo "New brewfile at $DOTFILES/brew/Brewfile"'
 
 #################
 # Alias built-ins
