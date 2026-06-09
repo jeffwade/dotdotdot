@@ -1,12 +1,12 @@
 #!/bin/sh
 
-export DOCS="$HOME/Documents"
+[ "$MACHINE" = "home" ] && export DOCS="$HOME/Documents"
+[ "$MACHINE" = "work" ] && export DOCS="$HOME/private"
 export CODE="$DOCS/code"
 export WEB="$CODE/web"
 export P5_SKETCHBOOK="$CODE/p5"
 export CLOD_PROJECTS="$CODE/claude"
 export DOT36="$WEB/36dot"
-export SCRIPTS="~/.scripts"
 export NOTES="$DOCS/note"
 export JOURNAL="$DOCS/hoy/entries"
 
